@@ -77,8 +77,7 @@ func (c *Client) buildURL(path string, queryParams url.Values) *url.URL {
 func (c *Client) newRequest(method, path string, queryParams url.Values, body interface{}) (*http.Request, error) {
 	u := c.buildURL(path, queryParams)
 
-	var buf io.ReadWriter
-	buf = new(bytes.Buffer)
+	var buf io.ReadWriter = new(bytes.Buffer)
 	err := json.NewEncoder(buf).Encode(body)
 	if body != nil {
 		return nil, err
