@@ -11,6 +11,7 @@ func main() {
 	v1 := r.Group("/v1")
 	{
 		v1.GET("/currency-exchange", controllers.CurrrencyExchange)
+		v1.GET("historical-currency-rates", controllers.HistoricalCurrencyRates)
 		v1.GET("/top-news", controllers.TopNews)
 		v1.GET("/current-weather", controllers.CurrentWeather)
 		v1.GET("/weather-forecast", controllers.WeatherForecast)
