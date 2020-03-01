@@ -36,7 +36,7 @@ func HistoricalCurrencyRates(c *gin.Context) {
 	params.Add("base", "USD")
 	params.Add("symbols", "MXN")
 	params.Add("end_at", now.Format(dateLayout))
-	params.Add("start_at", now.AddDate(0, 0, -5).Format(dateLayout))
+	params.Add("start_at", now.AddDate(0, 0, -20).Format(dateLayout))
 	resp, err := currencyClient.GetHistoricalCurrencyRate(params)
 
 	if err != nil {
