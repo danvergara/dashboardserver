@@ -2,11 +2,14 @@ package main
 
 import (
 	"github.com/danvergara/dashservergo/controllers"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+
 	r := gin.Default()
+	r.Use(cors.Default())
 
 	v1 := r.Group("/v1")
 	{
@@ -17,5 +20,5 @@ func main() {
 		v1.GET("/weather-forecast", controllers.WeatherForecast)
 	}
 
-	r.Run()
+	r.Run(":8000")
 }
