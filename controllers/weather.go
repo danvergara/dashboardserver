@@ -5,18 +5,19 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/danvergara/dashservergo/weatherbit"
+	"github.com/danvergara/dashservergo/openweather"
 	"github.com/gin-gonic/gin"
 )
 
 // CurrentWeather Returns the main data of the current Weather
 func CurrentWeather(c *gin.Context) {
-	weatherClient := weatherbit.Client{
-		APIKey: os.Getenv("WEATHERBIT_KEY"),
+	weatherClient := openweather.Client{
+		APIKey: os.Getenv("OPENWEATHER_KEY"),
 	}
 
 	params := url.Values{}
-	params.Add("city", "Mexico")
+	params.Add("id", "3527646")
+	params.Add("units", "metric")
 
 	response, err := weatherClient.GetCurrentWeather(params)
 
@@ -30,13 +31,13 @@ func CurrentWeather(c *gin.Context) {
 
 // WeatherForecast returns the forecast of the next 5 days
 func WeatherForecast(c *gin.Context) {
-	weatherClient := weatherbit.Client{
-		APIKey: os.Getenv("WEATHERBIT_KEY"),
+	weatherClient := openweather.Client{
+		APIKey: os.Getenv("OPENWEATHER_KEY"),
 	}
 
 	params := url.Values{}
-	params.Add("city", "Mexico")
-	params.Add("days", "5")
+	params.Add("id", "3527646")
+	params.Add("units", "metric")
 
 	response, err := weatherClient.GetWeatherForecast(params)
 
