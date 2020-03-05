@@ -1,4 +1,4 @@
-package weatherbit
+package openweather
 
 import (
 	"encoding/json"
@@ -12,17 +12,17 @@ import (
 
 func TestFailApiKey(t *testing.T) {
 	sv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		errorResponse := CurrentWeatherResponse{
-			Error: "API key not valid, or not yet activated.",
+		errorResponse := Weather{
+			Cod:     401,
+			Message: "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.",
 		}
 
-		encoder := json.NewEncoder(w)
-
 		values := r.URL.Query()
-		if values.Get("key") == "" {
+		if values.Get("APPID") == "" {
 			t.Error("API Key not provided")
 		}
 
+		encoder := json.NewEncoder(w)
 		encoder.Encode(errorResponse)
 	}))
 

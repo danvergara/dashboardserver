@@ -6,6 +6,6 @@ services:
     environment:
       OPEN_EXCHANGE_APP_ID: $OPEN_EXCHANGE_APP_ID
       NEWSAPI_KEY: $NEWSAPI_KEY
-      WEATHERBIT_KEY: $WEATHERBIT_KEY 
+      OPENWEATHER_KEY: $OPENWEATHER_KEY
     ports:
-      - "8080:8080"
+      - "8000:8000"
