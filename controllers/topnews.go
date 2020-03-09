@@ -17,7 +17,7 @@ func TopNews(c *gin.Context) {
 
 	params := url.Values{}
 	params.Add("country", "mx")
-	params.Add("category", "general")
+	params.Add("category", "business")
 	response, err := client.GetTopHeadlines(params)
 
 	if err != nil {
