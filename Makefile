@@ -24,12 +24,6 @@ run:
 test:
 	go test -v -cover -count=1 -race ./...
 
-# helper rule for deployment
-check-environment:
-ifndef ENV
-	$(error ENV not set, allowed values - 'staging' or 'production')
-endif
-
 .PHONY: docker-login
 ## docker-login: log in to a Docker registry
 docker-login:
@@ -55,12 +49,12 @@ podman-build: build
 
 .PHONY: docker-push
 ## docker-push: pushes the dashboardserver docker image to registry
-docker-push: check-environment docker-login docker-build
+docker-push: docker-login docker-build
 	docker push ${DOCKER_USER}/${APP}:${COMMIT_SHA}
 
 .PHONY: podman-push
 ## podman-push: pushes the dashboardserver image to registry
-podman-push: check-environment podman-login podman-build
+podman-push: podman-login podman-build
 	podman push ${DOCKER_USER}/${APP}:${COMMIT_SHA}
 
 .PHONY: up
