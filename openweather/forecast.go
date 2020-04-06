@@ -4,5 +4,5 @@ package openweather
 type Forecast struct {
 	List    []Weather `json:"list"`
 	Cod     string    `json:"cod"`
-	Message string    `json:"message:omitempty"`
+	Message string    `json:"message,omitempty"`
 }
