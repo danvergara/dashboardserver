@@ -292,7 +292,7 @@ func TestGetWeatherForecastWithoutAPIKey(t *testing.T) {
 
 	resp, err := c.GetWeatherForecast(queryParams)
 
-	assert.Equal(t, resp.StatusCode, http.StatusUnauthorized)
+	assert.Equal(t, http.StatusUnauthorized, resp.StatusCode)
 	assert.Nil(t, err)
 	assert.Equal(t, "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.", resp.ErrorMessage)
 }
