@@ -2,14 +2,14 @@ package openweather
 
 // Weather object
 type Weather struct {
-	Weather []MetaWeather `json:"weather,omitempty"`
-	Main    Main          `json:"main"`
-	Wind    Wind          `json:"wind"`
-	Clouds  Clouds        `json:"clouds"`
-	DtTxt   string        `json:"dt_txt,omitempty"`
-	Name    string        `json:"name,omitempty"`
-	Cod     int           `json:"cod"`
-	Message string        `json:"message,omitempty"`
+	Weather    []MetaWeather `json:"weather,omitempty"`
+	Main       Main          `json:"main"`
+	Wind       Wind          `json:"wind"`
+	Clouds     Clouds        `json:"clouds"`
+	DtTxt      string        `json:"dt_txt,omitempty"`
+	Name       string        `json:"name,omitempty"`
+	StatusCode int           `json:"status_code"`
+	Message    string        `json:"message,omitempty"`
 }
 
 // MetaWeather struct

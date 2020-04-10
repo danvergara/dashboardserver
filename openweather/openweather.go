@@ -1,10 +1,7 @@
 package openweather
 
 import (
-	"bytes"
 	"encoding/json"
-	"fmt"
-	"io"
 	"log"
 	"net/http"
 	"net/url"
@@ -20,31 +17,24 @@ type Client struct {
 
 // GetCurrentWeather gets the current weather in a specific zones given some parameters
 func (c *Client) GetCurrentWeather(queryParams url.Values) (Weather, error) {
-	req, err := c.newRequest("GET", weatherPath, queryParams, nil)
+	resp, err := c.get(weatherPath, queryParams)
 
 	if err != nil {
 		return Weather{Message: err.Error()}, err
 	}
 
-	if c.APIKey == "" {
-		return Weather{Message: "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info."}, fmt.Errorf("API key is required")
-	}
+	defer resp.Body.Close()
 
 	var weatherResponse = Weather{}
-
-	_, err = c.do(req, &weatherResponse)
-
-	if weatherResponse.Message != "" {
-		return weatherResponse, fmt.Errorf(weatherResponse.Message)
-	}
+	err = json.NewDecoder(resp.Body).Decode(&weatherResponse)
+	weatherResponse.StatusCode = resp.StatusCode
 
 	return weatherResponse, err
 }
 
 // GetWeatherForecast gets the forecasting of the weather of the next 5 days
 func (c *Client) GetWeatherForecast(queryParams url.Values) (Forecast, error) {
-	u := c.buildURL(forecastPath, queryParams)
-	resp, err := http.Get(u.String())
+	resp, err := c.get(forecastPath, queryParams)
 
 	if err != nil {
 		return Forecast{ErrorMessage: err.Error()}, err
@@ -53,6 +43,7 @@ func (c *Client) GetWeatherForecast(queryParams url.Values) (Forecast, error) {
 	defer resp.Body.Close()
 
 	var forecastResponse = Forecast{}
+
 	if resp.StatusCode == 200 {
 		err = json.NewDecoder(resp.Body).Decode(&forecastResponse)
 	} else {
@@ -62,6 +53,7 @@ func (c *Client) GetWeatherForecast(queryParams url.Values) (Forecast, error) {
 	}
 
 	forecastResponse.StatusCode = resp.StatusCode
+
 	return forecastResponse, err
 }
 
@@ -79,52 +71,17 @@ func (c *Client) buildURL(path string, params url.Values) *url.URL {
 	return u
 }
 
-func (c *Client) newRequest(method, path string, params url.Values, body interface{}) (*http.Request, error) {
-	u := c.buildURL(path, params)
-
-	var buf io.ReadWriter = new(bytes.Buffer)
-	err := json.NewEncoder(buf).Encode(body)
-
-	if body != nil {
-		return nil, err
-	}
-
-	req, err := http.NewRequest(method, u.String(), buf)
-
-	if err != nil {
-		return nil, err
-	}
-
-	if body != nil {
-		c.setHeader(req)
-	}
-
-	return req, nil
-}
-
-func (c *Client) do(req *http.Request, v interface{}) (*http.Response, error) {
+func (c *Client) get(path string, params url.Values) (resp *http.Response, err error) {
 	c.setClient()
-	resp, err := c.httpClient.Do(req)
-
-	if err != nil {
-		return nil, err
-	}
-
-	defer resp.Body.Close()
-
-	err = json.NewDecoder(resp.Body).Decode(v)
-
-	return resp, err
+	u := c.buildURL(path, params)
+	resp, err = c.httpClient.Get(u.String())
+	return
 }
 
 func (c *Client) setClient() {
 	if c.httpClient == nil {
 		c.httpClient = &http.Client{Timeout: time.Second * 3}
 	}
-}
-
-func (c *Client) setHeader(req *http.Request) {
-	req.Header.Set("Content-Type", "application/json")
 }
 
 func (c *Client) setBaseURL() string {

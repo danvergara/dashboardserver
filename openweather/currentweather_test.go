@@ -10,34 +10,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestGetCurrentWeatherWithoutCityID(t *testing.T) {
-	sv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		response := Weather{
-			Message: "Nothing to geocode",
-		}
-
-		if r.URL.Path != "/data/2.5/weather" {
-			t.Error("Bad weather path")
-		}
-
-		encoder := json.NewEncoder(w)
-		encoder.Encode(response)
-	}))
-
-	defer sv.Close()
-
-	c := Client{
-		APIKey:  "FAKE_API_KEY",
-		BaseURL: sv.URL,
-	}
-
-	queryParams := url.Values{}
-	_, err := c.GetCurrentWeather(queryParams)
-
-	assert.NotNil(t, err)
-	assert.Equal(t, "Nothing to geocode", err.Error())
-}
-
 func TestGetCurrentWeatherPassingCityID(t *testing.T) {
 	sv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		currentResponse := Weather{
@@ -63,7 +35,6 @@ func TestGetCurrentWeatherPassingCityID(t *testing.T) {
 				All: 5,
 			},
 			Name: "Mexico City",
-			Cod:  200,
 		}
 
 		if r.URL.Path != "/data/2.5/weather" {
@@ -94,5 +65,60 @@ func TestGetCurrentWeatherPassingCityID(t *testing.T) {
 	assert.Equal(t, "01n", resp.Weather[0].Icon)
 	assert.Equal(t, 9.0, resp.Main.TempMin)
 	assert.Equal(t, 19.0, resp.Main.TempMax)
-	assert.Equal(t, 200, resp.Cod)
+	assert.Equal(t, http.StatusOK, resp.StatusCode)
+}
+
+func TestCurrentWeatherWithoutCityID(t *testing.T) {
+	sv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		errorResponse := []byte(`
+			{
+				"cod": "400",
+				"message": "Nothing to geocode"
+			}
+		`)
+
+		w.WriteHeader(http.StatusBadRequest)
+		w.Write(errorResponse)
+	}))
+
+	defer sv.Close()
+
+	c := Client{
+		APIKey:  "FAKE_API_KEY",
+		BaseURL: sv.URL,
+	}
+
+	queryParams := url.Values{}
+	resp, err := c.GetCurrentWeather(queryParams)
+
+	assert.Nil(t, err)
+	assert.Equal(t, http.StatusBadRequest, resp.StatusCode)
+	assert.Equal(t, "Nothing to geocode", resp.Message)
+}
+
+func TestFailApiKey(t *testing.T) {
+	sv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		errorResponse := []byte(`
+			{
+				"cod": 401,
+				"message": "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info."
+			}
+		`)
+
+		w.WriteHeader(http.StatusUnauthorized)
+		w.Write(errorResponse)
+	}))
+
+	defer sv.Close()
+
+	c := Client{
+		BaseURL: sv.URL,
+	}
+
+	queryParams := url.Values{}
+
+	resp, err := c.GetCurrentWeather(queryParams)
+
+	assert.Nil(t, err)
+	assert.Equal(t, "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.", resp.Message)
 }
