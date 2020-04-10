@@ -43,24 +43,25 @@ func (c *Client) GetCurrentWeather(queryParams url.Values) (Weather, error) {
 
 // GetWeatherForecast gets the forecasting of the weather of the next 5 days
 func (c *Client) GetWeatherForecast(queryParams url.Values) (Forecast, error) {
-	req, err := c.newRequest("GET", forecastPath, queryParams, nil)
+	u := c.buildURL(forecastPath, queryParams)
+	resp, err := http.Get(u.String())
 
 	if err != nil {
-		return Forecast{Message: err.Error()}, err
+		return Forecast{ErrorMessage: err.Error()}, err
 	}
 
-	if c.APIKey == "" {
-		return Forecast{Message: "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info."}, fmt.Errorf("API key is required")
-	}
+	defer resp.Body.Close()
 
 	var forecastResponse = Forecast{}
-
-	_, err = c.do(req, &forecastResponse)
-
-	if forecastResponse.Message != "" {
-		return forecastResponse, fmt.Errorf(forecastResponse.Message)
+	if resp.StatusCode == 200 {
+		err = json.NewDecoder(resp.Body).Decode(&forecastResponse)
+	} else {
+		var forecastError = ForecastError{}
+		err = json.NewDecoder(resp.Body).Decode(&forecastError)
+		forecastResponse.ErrorMessage = forecastError.Message
 	}
 
+	forecastResponse.StatusCode = resp.StatusCode
 	return forecastResponse, err
 }
 
