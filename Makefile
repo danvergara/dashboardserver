@@ -7,12 +7,12 @@ DOCKER_REGISTRY?=docker.io
 ## build: the application
 build: clean
 	@echo "Building..."
-	@go build -o ${APP} main.go
+	@go build -o ${APP} cmd/api/main.go
 
 .PHONY: run
 ## run: runs go run main.go
 run:
-	go run -race main.go
+	go run -race cmd/api/main.go
 
 .PHONY: clean
 ## clean: cleans the binary
@@ -60,7 +60,7 @@ podman-push: podman-login podman-build
 .PHONY: up
 ## up: builds and starts containers for a service
 up:
-	podman-compose up --build --detach
+	podman-compose up --build
 
 .PHONY: down
 ## down: stops containers and remove containers, networks, volumes and images created by up
