@@ -1,11 +1,11 @@
-package controllers
+package economics
 
 import (
 	"net/http"
 	"net/url"
 	"time"
 
-	"github.com/danvergara/dashservergo/currencyexchange"
+	"github.com/danvergara/dashboardserver/pkg/currencyexchange"
 	"github.com/gin-gonic/gin"
 )
 

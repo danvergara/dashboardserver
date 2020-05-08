@@ -1,4 +1,4 @@
-package controllers
+package topnews
 
 import (
 	"net/http"

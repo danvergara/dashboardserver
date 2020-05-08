@@ -1,11 +1,11 @@
-package controllers
+package weather
 
 import (
 	"net/http"
 	"net/url"
 	"os"
 
-	"github.com/danvergara/dashservergo/openweather"
+	"github.com/danvergara/dashboardserver/pkg/openweather"
 	"github.com/gin-gonic/gin"
 )
 
