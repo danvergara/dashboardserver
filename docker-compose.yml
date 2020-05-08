@@ -2,10 +2,15 @@ version: "3.7"
 
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     environment:
       OPEN_EXCHANGE_APP_ID: $OPEN_EXCHANGE_APP_ID
       NEWSAPI_KEY: $NEWSAPI_KEY
       OPENWEATHER_KEY: $OPENWEATHER_KEY
+    env_file:
+      - .env
     ports:
       - "8000:8000"
+    entrypoint: ["/bin/bash", "./scripts/entrypoint.dev.sh"]
