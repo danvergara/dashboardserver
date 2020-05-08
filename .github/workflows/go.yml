@@ -30,12 +30,12 @@ jobs:
       - name: Build
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: go build .
+        run: go build cmd/api/main.go
 
       - name: Test
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: go test -v ./...
+        run: go test -v -cover ./...
 
       - name: Staticcheck
         run: |
