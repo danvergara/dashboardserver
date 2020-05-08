@@ -1,4 +1,4 @@
-module github.com/danvergara/dashservergo
+module github.com/danvergara/dashboardserver
 
 go 1.13
 

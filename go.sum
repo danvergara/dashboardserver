@@ -1,3 +1,4 @@
+github.com/danvergara/dashboardserver v0.0.0-20200410032328-6b4c9ed3ee79 h1:xsK+50wmFXF4PqyWrqW8BlLP4P4Um7FDwWlRsAeDbfI=
 github.com/danvergara/newsapigo v0.1.0 h1:jbbx7LBwVrShYyN8NlyLW9/4Z4HAMMWjbwWW1+dbZos=
 github.com/danvergara/newsapigo v0.1.0/go.mod h1:k8K/nEkpUbpJPhIqJNlB0LMK04kBjvD0ks9RVLV42wM=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
