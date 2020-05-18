@@ -46,7 +46,6 @@ podman-build: build
 	podman build -t ${APP}:${COMMIT_SHA} .
 	podman tag ${APP}:${COMMIT_SHA} ${DOCKER_USER}/${APP}:${COMMIT_SHA}
 
-
 .PHONY: docker-push
 ## docker-push: pushes the dashboardserver docker image to registry
 docker-push: docker-login docker-build
@@ -60,22 +59,27 @@ podman-push: podman-login podman-build
 .PHONY: up
 ## up: builds and starts containers for a service
 up:
-	podman-compose up --build
+	docker-compose up --build --detach
 
 .PHONY: down
 ## down: stops containers and remove containers, networks, volumes and images created by up
 down:
-	podman-compose down
-
-.PHONY: docker-up
-## docker-up: builds and starts containers for a service
-docker-up:
-	docker-compose up --build --detach
-
-.PHONY: docker-down
-## docker-down: stops containers and remove containers, networks, volumes and images created by up
-docker-down:
 	docker-compose down
+
+.PHONY: logs
+## logs: Displays log output from services
+logs:
+	docker-compose logs --follow
+
+.PHONY: podman-up
+## podman-up: builds and starts containers for a service
+podman-up:
+	podman-compose up --build --detach
+
+.PHONY: podman-down
+## podman-down: stops containers and remove containers, networks, volumes and images created by up
+podman-down:
+	podman-compose down
 
 .PHONY: help
 ## help: Prints this help message
