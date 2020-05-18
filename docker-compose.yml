@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  app:
+  dashboardserver:
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -9,8 +9,25 @@ services:
       OPEN_EXCHANGE_APP_ID: $OPEN_EXCHANGE_APP_ID
       NEWSAPI_KEY: $NEWSAPI_KEY
       OPENWEATHER_KEY: $OPENWEATHER_KEY
+      VIRTUAL_HOST: dashboardserver.default
+      VIRTUAL_PORT: 8000
     env_file:
       - .env
     ports:
       - "8000:8000"
     entrypoint: ["/bin/bash", "./scripts/entrypoint.dev.sh"]
+    networks:
+      - watchtower-apigateway_watchtower-net
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - watchtower-apigateway_watchtower-net
+
+networks:
+  watchtower-apigateway_watchtower-net:
+    external: true
