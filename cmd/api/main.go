@@ -1,26 +1,39 @@
 package main
 
 import (
-	"github.com/danvergara/dashboardserver/pkg/handlers/economics"
-	"github.com/danvergara/dashboardserver/pkg/handlers/topnews"
-	"github.com/danvergara/dashboardserver/pkg/handlers/weather"
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
+	"log"
+
+	"github.com/danvergara/dashboardserver/pkg/application"
+	"github.com/danvergara/dashboardserver/pkg/exithandler"
+	"github.com/danvergara/dashboardserver/pkg/logger"
+	"github.com/danvergara/dashboardserver/pkg/router"
+	"github.com/danvergara/dashboardserver/pkg/server"
 )
 
 func main() {
+	app, err := application.New()
 
-	r := gin.Default()
-	r.Use(cors.Default())
-
-	v1 := r.Group("/v1")
-	{
-		v1.GET("/currency-exchange", economics.CurrrencyExchange)
-		v1.GET("/historical-currency-rates", economics.HistoricalCurrencyRates)
-		v1.GET("/top-news", topnews.TopNews)
-		v1.GET("/current-weather", weather.CurrentWeather)
-		v1.GET("/weather-forecast", weather.WeatherForecast)
+	if err != nil {
+		log.Fatal(err)
 	}
 
-	r.Run(":8000")
+	srv := server.
+		New().
+		WithAddr(app.Cfg.APIAddr()).
+		WithRouter(router.New(app)).
+		WithErrLogger(logger.Error)
+
+	go func() {
+		logger.Info.Printf("starting server at %s", app.Cfg.AppPort)
+		if err := srv.Start(); err != nil {
+			logger.Error.Fatalln(err)
+		}
+	}()
+
+	exithandler.Init(func() {
+		if err := srv.Close(); err != nil {
+			logger.Error.Println(err)
+		}
+	})
+
 }

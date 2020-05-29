@@ -1,29 +1,43 @@
 package topnews
 
 import (
+	"encoding/json"
+	"log"
 	"net/http"
 	"net/url"
 	"os"
 
+	"github.com/danvergara/dashboardserver/pkg/application"
 	"github.com/danvergara/newsapigo"
-	"github.com/gin-gonic/gin"
 )
 
+// ArticlesReponse substitutes the old response {"news": response.Articles}
+type ArticlesReponse struct {
+	News []newsapigo.Article `json:"news"`
+}
+
 // TopNews returns the top news in Mexico
-func TopNews(c *gin.Context) {
-	client := newsapigo.NewsClient{
-		APIKey: os.Getenv("NEWSAPI_KEY"),
+func TopNews(app *application.Application) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		client := newsapigo.NewsClient{
+			APIKey: os.Getenv("NEWSAPI_KEY"),
+		}
+
+		params := url.Values{}
+		params.Add("country", "mx")
+		params.Add("category", "business")
+		response, err := client.GetTopHeadlines(params)
+
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusNotFound)
+			return
+		}
+
+		encoder := json.NewEncoder(w)
+		articlesResponse := ArticlesReponse{News: response.Articles}
+		if err = encoder.Encode(articlesResponse); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			log.Println(err)
+		}
 	}
-
-	params := url.Values{}
-	params.Add("country", "mx")
-	params.Add("category", "business")
-	response, err := client.GetTopHeadlines(params)
-
-	if err != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": err.Error()})
-		return
-	}
-
-	c.JSON(http.StatusOK, gin.H{"news": response.Articles})
 }
