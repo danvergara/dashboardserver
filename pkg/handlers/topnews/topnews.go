@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/danvergara/dashboardserver/pkg/application"
+	"github.com/danvergara/dashboardserver/pkg/cors"
 	"github.com/danvergara/newsapigo"
 )
 
@@ -19,6 +20,8 @@ type ArticlesReponse struct {
 // TopNews returns the top news in Mexico
 func TopNews(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		cors.EnableCors(&w)
+
 		client := newsapigo.NewsClient{
 			APIKey: os.Getenv("NEWSAPI_KEY"),
 		}
