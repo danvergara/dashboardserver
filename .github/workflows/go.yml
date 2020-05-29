@@ -37,6 +37,14 @@ jobs:
           GOPROXY: "https://proxy.golang.org"
         run: go test -v -cover ./...
 
+      - name: GoCILint
+        env:
+          GOPROXY: "https://proxy.golang.org"
+        run: |
+          go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.27.0
+          golangci-lint run -E gofmt -E golint -E goimport
+
+
       - name: Staticcheck
         run: |
           # add executables installed with go get to PATH

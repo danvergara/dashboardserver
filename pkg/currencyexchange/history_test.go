@@ -28,7 +28,10 @@ func TestGetHistoricalCurrencyRates(t *testing.T) {
 		}
 
 		encoder := json.NewEncoder(w)
-		encoder.Encode(historicalExchangeRate)
+		err := encoder.Encode(historicalExchangeRate)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()
