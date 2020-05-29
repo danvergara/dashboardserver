@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/danvergara/dashboardserver/pkg/application"
+	"github.com/danvergara/dashboardserver/pkg/cors"
 	"github.com/danvergara/dashboardserver/pkg/currencyexchange"
 )
 
@@ -24,6 +25,7 @@ type HistoricalCurrencyResponse struct {
 // CurrencyExchange returns the currency exchange between the dollar and the mexican peso
 func CurrencyExchange(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		cors.EnableCors(&w)
 		currencyClient := currencyexchange.Client{}
 		params := url.Values{}
 		params.Add("base", "USD")
@@ -48,6 +50,7 @@ func CurrencyExchange(app *application.Application) http.HandlerFunc {
 // HistoricalCurrencyRates returns the historical currency rates given start and end dates
 func HistoricalCurrencyRates(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		cors.EnableCors(&w)
 		currencyClient := currencyexchange.Client{}
 		now := time.Now()
 		dateLayout := "2006-01-02"
