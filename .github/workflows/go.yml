@@ -15,7 +15,15 @@ jobs:
           go-version: ${{ matrix.goVer }}
 
       - name: Check out source code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+
+      - name: Get dependencies
+        run: |
+          go get -v -t -d ./...
+          if [ -f Gopkg.toml ]; then
+              curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+              dep ensure
+          fi
 
       - name: Cache Go modules
         uses: actions/cache@preview
@@ -37,13 +45,11 @@ jobs:
           GOPROXY: "https://proxy.golang.org"
         run: go test -v -cover ./...
 
-      - name: GoCILint
-        env:
-          GOPROXY: "https://proxy.golang.org"
-        run: |
-          go get github.com/golangci/golangci-lint/cmd/golangci-lint@v1.27.0
-          golangci-lint run -E gofmt -E golint -E goimport
+      - name: Run gofmt
+        run: gofmt -d -e .
 
+      - name: Run go vet
+        run: go vet -v ./...
 
       - name: Staticcheck
         run: |
