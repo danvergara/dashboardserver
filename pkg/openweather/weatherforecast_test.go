@@ -142,7 +142,10 @@ func TestGetWeatherForecastLongList(t *testing.T) {
 		}
 
 		encoder := json.NewEncoder(w)
-		encoder.Encode(errorForecastResponse)
+		err := encoder.Encode(errorForecastResponse)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()
@@ -213,7 +216,10 @@ func TestGetWeatherForecastWithIntMessage(t *testing.T) {
 			}
 		`)
 
-		w.Write(ForecastResponse)
+		_, err := w.Write(ForecastResponse)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()
@@ -249,7 +255,10 @@ func TestGetWeatherForecastWithoutCountryID(t *testing.T) {
 		`)
 
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write(ForecastResponse)
+		_, err := w.Write(ForecastResponse)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()
@@ -279,7 +288,10 @@ func TestGetWeatherForecastWithoutAPIKey(t *testing.T) {
 		`)
 
 		w.WriteHeader(http.StatusUnauthorized)
-		w.Write(ForecastResponse)
+		_, err := w.Write(ForecastResponse)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()

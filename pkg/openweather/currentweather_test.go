@@ -42,7 +42,10 @@ func TestGetCurrentWeatherPassingCityID(t *testing.T) {
 		}
 
 		encoder := json.NewEncoder(w)
-		encoder.Encode(currentResponse)
+		err := encoder.Encode(currentResponse)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()
@@ -78,7 +81,10 @@ func TestCurrentWeatherWithoutCityID(t *testing.T) {
 		`)
 
 		w.WriteHeader(http.StatusBadRequest)
-		w.Write(errorResponse)
+		_, err := w.Write(errorResponse)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()
@@ -106,7 +112,10 @@ func TestFailApiKey(t *testing.T) {
 		`)
 
 		w.WriteHeader(http.StatusUnauthorized)
-		w.Write(errorResponse)
+		_, err := w.Write(errorResponse)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()

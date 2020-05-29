@@ -21,7 +21,10 @@ func TestPassingWrongBase(t *testing.T) {
 		}
 
 		econder := json.NewEncoder(w)
-		econder.Encode(errorCurrencyData)
+		err := econder.Encode(errorCurrencyData)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()
@@ -50,7 +53,10 @@ func TestGetLatestCurrencyExchange(t *testing.T) {
 		}
 
 		encoder := json.NewEncoder(w)
-		encoder.Encode(currencyExchangeData)
+		err := encoder.Encode(currencyExchangeData)
+		if err != nil {
+			t.Error(err.Error())
+		}
 	}))
 
 	defer sv.Close()
