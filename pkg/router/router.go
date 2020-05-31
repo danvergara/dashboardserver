@@ -9,6 +9,7 @@ import (
 	auth "github.com/danvergara/dashboardserver/pkg/middleware"
 
 	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/cors"
 )
 
@@ -33,6 +34,10 @@ func New(app *application.Application) *chi.Mux {
 		MaxAge:           300, // Maximum value not ignored by any of major browsers
 	}))
 
+	mux.Use(middleware.RequestID)
+	mux.Use(middleware.RealIP)
+	mux.Use(middleware.Logger)
+	mux.Use(middleware.Recoverer)
 	mux.Use(jwtMiddleware.Handler)
 
 	mux.Get("/_healthcheck", healthcheck.Healthcheck(app))
