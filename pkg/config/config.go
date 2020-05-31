@@ -28,7 +28,7 @@ func NewConfig() *Config {
 
 // APIAddr Returns the Address of the service
 func (c *Config) APIAddr() string {
-	return fmt.Sprintf(":%s", c.AppPort)
+	return fmt.Sprintf(":%s", "8000")
 }
 
 func getEnv(key, defaultVal string) string {
