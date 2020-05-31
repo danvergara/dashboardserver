@@ -8,7 +8,6 @@ import (
 	"os"
 
 	"github.com/danvergara/dashboardserver/pkg/application"
-	"github.com/danvergara/dashboardserver/pkg/cors"
 	"github.com/danvergara/dashboardserver/pkg/openweather"
 )
 
@@ -25,8 +24,6 @@ type ForecastResponse struct {
 // CurrentWeather Returns the main data of the current Weather
 func CurrentWeather(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-
-		cors.EnableCors(&w)
 
 		weatherClient := openweather.Client{
 			APIKey: os.Getenv("OPENWEATHER_KEY"),
@@ -55,7 +52,6 @@ func CurrentWeather(app *application.Application) http.HandlerFunc {
 // Forecast returns the forecast of the next 5 days
 func Forecast(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		cors.EnableCors(&w)
 
 		weatherClient := openweather.Client{
 			APIKey: os.Getenv("OPENWEATHER_KEY"),
