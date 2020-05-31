@@ -18,9 +18,8 @@ RUN go build -o app cmd/api/main.go
 FROM alpine:latest as certs
 RUN apk --update add ca-certificates
 
-ENV GIN_MODE=release
-
 WORKDIR /app
 
 COPY --from=base /app/app .
 ENTRYPOINT ["./app"]
+EXPOSE 8000
