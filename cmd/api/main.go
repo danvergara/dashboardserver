@@ -26,7 +26,7 @@ func main() {
 	go func() {
 		logger.Info.Printf("starting server at %s", app.Cfg.AppPort)
 		if err := srv.Start(); err != nil {
-			logger.Error.Fatalln(err)
+			logger.Error.Fatal(err)
 		}
 	}()
 
