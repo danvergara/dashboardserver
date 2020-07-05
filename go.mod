@@ -4,7 +4,7 @@ go 1.14
 
 require (
 	github.com/auth0/go-jwt-middleware v0.0.0-20200507191422-d30d7b9ece63
-	github.com/danvergara/newsapigo v0.1.0
+	github.com/danvergara/newsapigo v0.2.0
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-chi/chi v4.1.1+incompatible
