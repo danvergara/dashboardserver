@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"net/url"
 	"os"
 
 	"github.com/danvergara/dashboardserver/pkg/application"
@@ -16,26 +15,32 @@ type ArticlesReponse struct {
 	News []newsapigo.Article `json:"news"`
 }
 
-// TopNews returns the top news in Mexico
+// TopNews returns the top news about business in Mexico
+// As we can see, newsapigo is the library that does the hard work
 func TopNews(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		// Using the brand new NewClient constructor function to create a newsapigo Client
+		c := newsapigo.NewClient(os.Getenv("NEWSAPI_KEY"))
 
-		client := newsapigo.NewsClient{
-			APIKey: os.Getenv("NEWSAPI_KEY"),
+		// to create the query params, create an TopHeadlinesArgs instance an fil the requred fields
+		// In this case: Country and Category
+		queryParams := newsapigo.TopHeadlinesArgs{
+			Country:  "mx",
+			Category: "business",
 		}
 
-		params := url.Values{}
-		params.Add("country", "mx")
-		params.Add("category", "business")
-		response, err := client.GetTopHeadlines(params)
+		// Perfom the http request using the TopHeadlines method
+		response, err := c.TopHeadlines(queryParams)
 
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusNotFound)
 			return
 		}
-
-		encoder := json.NewEncoder(w)
+		// Create the endpoint response using the previous newsapigo's response
 		articlesResponse := ArticlesReponse{News: response.Articles}
+
+		// Enconde the response
+		encoder := json.NewEncoder(w)
 		if err = encoder.Encode(articlesResponse); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			log.Println(err)
