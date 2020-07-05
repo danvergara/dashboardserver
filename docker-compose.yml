@@ -17,7 +17,7 @@ services:
       - "8000:8000"
     entrypoint: ["/bin/bash", "./scripts/entrypoint.dev.sh"]
     networks:
-      - watchtower-apigateway_watchtower-net
+      - dashboardserver-net
 
   nginx-proxy:
     image: jwilder/nginx-proxy
@@ -26,8 +26,7 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     networks:
-      - watchtower-apigateway_watchtower-net
+      - dashboardserver-net
 
 networks:
-  watchtower-apigateway_watchtower-net:
-    external: true
+  dashboardserver-net:
