@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"net/url"
 	"os"
 
 	"github.com/danvergara/dashboardserver/pkg/application"
@@ -24,16 +23,14 @@ type ForecastResponse struct {
 // CurrentWeather Returns the main data of the current Weather
 func CurrentWeather(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		c := openweather.NewClient(os.Getenv("OPENWEATHER_KEY"))
 
-		weatherClient := openweather.Client{
-			APIKey: os.Getenv("OPENWEATHER_KEY"),
+		params := openweather.WeatherArgs{
+			ID:    3527646,
+			Units: "metric",
 		}
 
-		params := url.Values{}
-		params.Add("id", "3527646")
-		params.Add("units", "metric")
-
-		response, err := weatherClient.GetCurrentWeather(params)
+		res, err := c.CurrentWeather(params)
 
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusNotFound)
@@ -41,7 +38,7 @@ func CurrentWeather(app *application.Application) http.HandlerFunc {
 		}
 
 		encoder := json.NewEncoder(w)
-		currentWeatherResponse := CurrentWeatherResponse{CurrentWeather: response}
+		currentWeatherResponse := CurrentWeatherResponse{CurrentWeather: res}
 		if err = encoder.Encode(currentWeatherResponse); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			log.Println(err)
@@ -52,23 +49,21 @@ func CurrentWeather(app *application.Application) http.HandlerFunc {
 // Forecast returns the forecast of the next 5 days
 func Forecast(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		c := openweather.NewClient(os.Getenv("OPENWEATHER_KEY"))
 
-		weatherClient := openweather.Client{
-			APIKey: os.Getenv("OPENWEATHER_KEY"),
+		params := openweather.WeatherArgs{
+			ID:    3527646,
+			Units: "metric",
 		}
 
-		params := url.Values{}
-		params.Add("id", "3527646")
-		params.Add("units", "metric")
-
-		response, err := weatherClient.GetWeatherForecast(params)
+		res, err := c.WeatherForecast(params)
 
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusNotFound)
 			return
 		}
 
-		forecastWeatherResponse := ForecastResponse{WeatherForecast: response}
+		forecastWeatherResponse := ForecastResponse{WeatherForecast: res}
 		encoder := json.NewEncoder(w)
 		if err = encoder.Encode(forecastWeatherResponse); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
