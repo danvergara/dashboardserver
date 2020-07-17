@@ -19,14 +19,5 @@ services:
     networks:
       - dashboardserver-net
 
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    ports:
-      - "80:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    networks:
-      - dashboardserver-net
-
 networks:
   dashboardserver-net:
