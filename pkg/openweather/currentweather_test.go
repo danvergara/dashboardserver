@@ -6,6 +6,7 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -34,10 +35,11 @@ func TestGetCurrentWeatherPassingCityID(t *testing.T) {
 			Clouds: Clouds{
 				All: 5,
 			},
-			Name: "Mexico City",
+			Name:       "Mexico City",
+			StatusCode: 200,
 		}
 
-		if r.URL.Path != "/data/2.5/weather" {
+		if r.URL.Path != "/weather" {
 			t.Error("Bad current weather path")
 		}
 
@@ -50,16 +52,21 @@ func TestGetCurrentWeatherPassingCityID(t *testing.T) {
 
 	defer sv.Close()
 
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
 	c := Client{
-		APIKey:  "FAKE_API_KEY",
-		BaseURL: sv.URL,
+		apiKey:     "FAKE_API_KEY",
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-	// Mexico City ID
-	queryParams.Add("id", "3527646")
-	queryParams.Add("unit", "metric")
-	resp, err := c.GetCurrentWeather(queryParams)
+	params := WeatherArgs{
+		ID:    3527646,
+		Units: "metric",
+	}
+
+	resp, err := c.CurrentWeather(params)
 
 	assert.Nil(t, err)
 	assert.Equal(t, 15.17, resp.Main.Temp)
@@ -75,7 +82,7 @@ func TestCurrentWeatherWithoutCityID(t *testing.T) {
 	sv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		errorResponse := []byte(`
 			{
-				"cod": "400",
+				"cod": 400,
 				"message": "Nothing to geocode"
 			}
 		`)
@@ -89,14 +96,18 @@ func TestCurrentWeatherWithoutCityID(t *testing.T) {
 
 	defer sv.Close()
 
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
 	c := Client{
-		APIKey:  "FAKE_API_KEY",
-		BaseURL: sv.URL,
+		apiKey:     "FAKE_API_KEY",
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-	resp, err := c.GetCurrentWeather(queryParams)
+	params := WeatherArgs{}
 
+	resp, err := c.CurrentWeather(params)
 	assert.Nil(t, err)
 	assert.Equal(t, http.StatusBadRequest, resp.StatusCode)
 	assert.Equal(t, "Nothing to geocode", resp.Message)
@@ -120,13 +131,17 @@ func TestFailApiKey(t *testing.T) {
 
 	defer sv.Close()
 
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
 	c := Client{
-		BaseURL: sv.URL,
+		apiKey:     "FAKE_API_KEY",
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-
-	resp, err := c.GetCurrentWeather(queryParams)
+	params := WeatherArgs{}
+	resp, err := c.CurrentWeather(params)
 
 	assert.Nil(t, err)
 	assert.Equal(t, "Invalid API key. Please see http://openweathermap.org/faq#error401 for more info.", resp.Message)
