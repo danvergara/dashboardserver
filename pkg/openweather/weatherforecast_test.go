@@ -6,6 +6,7 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -137,7 +138,7 @@ func TestGetWeatherForecastLongList(t *testing.T) {
 			},
 		}
 
-		if r.URL.Path != "/data/2.5/forecast" {
+		if r.URL.Path != "/forecast" {
 			t.Error("Bad forecast Path")
 		}
 
@@ -150,16 +151,21 @@ func TestGetWeatherForecastLongList(t *testing.T) {
 
 	defer sv.Close()
 
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
 	c := Client{
-		APIKey:  "FAKE_API_KEY",
-		BaseURL: sv.URL,
+		apiKey:     "FAKE_API_KEY",
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-	queryParams.Add("unit", "metric")
-	queryParams.Add("id", "3527646")
+	params := WeatherArgs{
+		ID:    3527646,
+		Units: "metric",
+	}
 
-	resp, err := c.GetWeatherForecast(queryParams)
+	resp, err := c.WeatherForecast(params)
 
 	assert.Nil(t, err)
 	assert.Equal(t, 5, len(resp.List))
@@ -224,16 +230,21 @@ func TestGetWeatherForecastWithIntMessage(t *testing.T) {
 
 	defer sv.Close()
 
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
 	c := Client{
-		APIKey:  "FAKE_API_KEY",
-		BaseURL: sv.URL,
+		apiKey:     "FAKE_API_KEY",
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-	queryParams.Add("unit", "metric")
-	queryParams.Add("id", "3527646")
+	params := WeatherArgs{
+		ID:    3527646,
+		Units: "metric",
+	}
 
-	resp, err := c.GetWeatherForecast(queryParams)
+	resp, err := c.WeatherForecast(params)
 
 	assert.Nil(t, err)
 	assert.Equal(t, 1, len(resp.List))
@@ -249,7 +260,7 @@ func TestGetWeatherForecastWithoutCountryID(t *testing.T) {
 	sv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ForecastResponse := []byte(`
 			{
-				"cod": "400",
+				"cod": 400,
 				"message": "Nothing to geocode"
 			}
 		`)
@@ -263,17 +274,20 @@ func TestGetWeatherForecastWithoutCountryID(t *testing.T) {
 
 	defer sv.Close()
 
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
 	c := Client{
-		APIKey:  "FAKE_API_KEY",
-		BaseURL: sv.URL,
+		apiKey:     "FAKE_API_KEY",
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-	queryParams.Add("unit", "metric")
+	params := WeatherArgs{}
 
-	resp, err := c.GetWeatherForecast(queryParams)
+	resp, err := c.WeatherForecast(params)
 
-	assert.Equal(t, resp.StatusCode, http.StatusBadRequest)
+	assert.Equal(t, http.StatusBadRequest, resp.StatusCode)
 	assert.Nil(t, err)
 	assert.Equal(t, "Nothing to geocode", resp.ErrorMessage)
 }
@@ -296,13 +310,17 @@ func TestGetWeatherForecastWithoutAPIKey(t *testing.T) {
 
 	defer sv.Close()
 
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
 	c := Client{
-		BaseURL: sv.URL,
+		apiKey:     "FAKE_API_KEY",
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-
-	resp, err := c.GetWeatherForecast(queryParams)
+	params := WeatherArgs{}
+	resp, err := c.WeatherForecast(params)
 
 	assert.Equal(t, http.StatusUnauthorized, resp.StatusCode)
 	assert.Nil(t, err)
