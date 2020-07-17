@@ -8,7 +8,7 @@ type Weather struct {
 	Clouds     Clouds        `json:"clouds"`
 	DtTxt      string        `json:"dt_txt,omitempty"`
 	Name       string        `json:"name,omitempty"`
-	StatusCode int           `json:"status_code"`
+	StatusCode int           `json:"cod"`
 	Message    string        `json:"message,omitempty"`
 }
 

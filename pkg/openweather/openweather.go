@@ -2,91 +2,102 @@ package openweather
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 	"net/url"
 	"time"
 )
 
-// Client is the client used to connect this app with openweather API
+var baseURL = url.URL{
+	Scheme: "https",
+	Host:   "api.openweathermap.org",
+	Path:   "/data/2.5/",
+}
+
+// Client is the client used to connect this app with openweather API.
 type Client struct {
-	APIKey     string
-	BaseURL    string
+	apiKey     string
+	baseURL    *url.URL
 	httpClient *http.Client
 }
 
+// NEwNewClient returns a new pointer of an instance of the Client.
+// It expects a valid API Key as a parameter.
+func NewClient(apiKey string) *Client {
+	c := &http.Client{Timeout: time.Minute}
+
+	return &Client{
+		apiKey:     apiKey,
+		baseURL:    &baseURL,
+		httpClient: c,
+	}
+}
+
 // GetCurrentWeather gets the current weather in a specific zones given some parameters
-func (c *Client) GetCurrentWeather(queryParams url.Values) (Weather, error) {
-	resp, err := c.get(weatherPath, queryParams)
+func (c *Client) CurrentWeather(args WeatherArgs) (Weather, error) {
+	endpt := c.baseURL.ResolveReference(&url.URL{Path: weatherPath})
+
+	req, err := http.NewRequest("GET", endpt.String(), nil)
 
 	if err != nil {
 		return Weather{Message: err.Error()}, err
 	}
 
-	defer resp.Body.Close()
+	req.Header.Add("Accept", "application/json")
+
+	params := args.QueryParams()
+	params.Add("APPID", c.apiKey)
+
+	req.URL.RawQuery = params.Encode()
+	res, err := c.httpClient.Do(req)
+
+	if err != nil {
+		return Weather{Message: err.Error()}, err
+	}
+	defer res.Body.Close()
 
 	var weatherResponse = Weather{}
-	err = json.NewDecoder(resp.Body).Decode(&weatherResponse)
-	weatherResponse.StatusCode = resp.StatusCode
 
-	return weatherResponse, err
+	if err := json.NewDecoder(res.Body).Decode(&weatherResponse); err != nil {
+		return Weather{Message: err.Error()}, err
+	}
+
+	return weatherResponse, nil
 }
 
 // GetWeatherForecast gets the forecasting of the weather of the next 5 days
-func (c *Client) GetWeatherForecast(queryParams url.Values) (Forecast, error) {
-	resp, err := c.get(forecastPath, queryParams)
+func (c *Client) WeatherForecast(args WeatherArgs) (Forecast, error) {
+	endpt := c.baseURL.ResolveReference(&url.URL{Path: forecastPath})
+	req, err := http.NewRequest("GET", endpt.String(), nil)
+	if err != nil {
+		return Forecast{ErrorMessage: err.Error()}, err
+	}
+
+	req.Header.Add("Accept", "application/json")
+
+	params := args.QueryParams()
+	params.Add("APPID", c.apiKey)
+	req.URL.RawQuery = params.Encode()
+
+	res, err := c.httpClient.Do(req)
 
 	if err != nil {
 		return Forecast{ErrorMessage: err.Error()}, err
 	}
 
-	defer resp.Body.Close()
+	defer res.Body.Close()
 
 	var forecastResponse = Forecast{}
 
-	if resp.StatusCode == 200 {
-		err = json.NewDecoder(resp.Body).Decode(&forecastResponse)
-	} else {
+	switch res.StatusCode {
+	case 200:
+		err = json.NewDecoder(res.Body).Decode(&forecastResponse)
+	default:
 		var forecastError = ForecastError{}
-		err = json.NewDecoder(resp.Body).Decode(&forecastError)
+		err = json.NewDecoder(res.Body).Decode(&forecastError)
 		forecastResponse.ErrorMessage = forecastError.Message
 	}
 
-	forecastResponse.StatusCode = resp.StatusCode
+	forecastResponse.StatusCode = res.StatusCode
 
 	return forecastResponse, err
-}
-
-func (c *Client) buildURL(path string, params url.Values) *url.URL {
-	u, err := url.Parse(c.setBaseURL())
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	params.Add("APPID", c.APIKey)
-
-	u.Path = path
-	u.RawQuery = params.Encode()
-	return u
-}
-
-func (c *Client) get(path string, params url.Values) (resp *http.Response, err error) {
-	c.setClient()
-	u := c.buildURL(path, params)
-	resp, err = c.httpClient.Get(u.String())
-	return
-}
-
-func (c *Client) setClient() {
-	if c.httpClient == nil {
-		c.httpClient = &http.Client{Timeout: time.Second * 3}
-	}
-}
-
-func (c *Client) setBaseURL() string {
-	if c.BaseURL == "" {
-		return defaultBaseURL
-	}
-	return c.BaseURL
 }
