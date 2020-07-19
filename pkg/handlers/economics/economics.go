@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"net/url"
 	"time"
 
 	"github.com/danvergara/dashboardserver/pkg/application"
@@ -24,19 +23,21 @@ type HistoricalCurrencyResponse struct {
 // CurrencyExchange returns the currency exchange between the dollar and the mexican peso
 func CurrencyExchange(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		currencyClient := currencyexchange.Client{}
-		params := url.Values{}
-		params.Add("base", "USD")
-		params.Add("symbols", "MXN")
+		c := currencyexchange.NewClient()
 
-		resp, err := currencyClient.GetLatestCurrencyExchange(params)
+		params := currencyexchange.LatestArgs{
+			Base:    "USD",
+			Symbols: []string{"MXN"},
+		}
+
+		res, err := c.LatestCurrencyExchange(params)
 
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusNotFound)
 			return
 		}
 
-		currencyExchangeResponse := CurrencyExchangeResponse{CurrencyExchange: resp}
+		currencyExchangeResponse := CurrencyExchangeResponse{CurrencyExchange: *res}
 		encoder := json.NewEncoder(w)
 		if err = encoder.Encode(currencyExchangeResponse); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -48,23 +49,25 @@ func CurrencyExchange(app *application.Application) http.HandlerFunc {
 // HistoricalCurrencyRates returns the historical currency rates given start and end dates
 func HistoricalCurrencyRates(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		currencyClient := currencyexchange.Client{}
+		c := currencyexchange.NewClient()
 		now := time.Now()
-		dateLayout := "2006-01-02"
 
-		params := url.Values{}
-		params.Add("base", "USD")
-		params.Add("symbols", "MXN")
-		params.Add("end_at", now.Format(dateLayout))
-		params.Add("start_at", now.AddDate(0, 0, -20).Format(dateLayout))
-		resp, err := currencyClient.GetHistoricalCurrencyRate(params)
+		params := currencyexchange.HistoryArgs{
+			Base:    "USD",
+			Symbols: []string{"MXN"},
+			EndAt:   now,
+			StartAt: now.AddDate(0, 0, -20),
+		}
+
+		res, err := c.HistoricalCurrencyRate(params)
 
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusNotFound)
 			return
 		}
 
-		historicalCurrencyResponse := HistoricalCurrencyResponse{HistoricalCurrencyRates: resp}
+		historicalCurrencyResponse := HistoricalCurrencyResponse{HistoricalCurrencyRates: *res}
+
 		encoder := json.NewEncoder(w)
 		if err = encoder.Encode(historicalCurrencyResponse); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
