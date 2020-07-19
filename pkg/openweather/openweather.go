@@ -20,7 +20,7 @@ type Client struct {
 	httpClient *http.Client
 }
 
-// NEwNewClient returns a new pointer of an instance of the Client.
+// NewClient returns a new pointer of an instance of the Client.
 // It expects a valid API Key as a parameter.
 func NewClient(apiKey string) *Client {
 	c := &http.Client{Timeout: time.Minute}
@@ -32,7 +32,7 @@ func NewClient(apiKey string) *Client {
 	}
 }
 
-// GetCurrentWeather gets the current weather in a specific zones given some parameters
+// CurrentWeather gets the current weather in a specific zones given some parameters
 func (c *Client) CurrentWeather(args WeatherArgs) (Weather, error) {
 	endpt := c.baseURL.ResolveReference(&url.URL{Path: weatherPath})
 
@@ -64,7 +64,7 @@ func (c *Client) CurrentWeather(args WeatherArgs) (Weather, error) {
 	return weatherResponse, nil
 }
 
-// GetWeatherForecast gets the forecasting of the weather of the next 5 days
+// WeatherForecast gets the forecasting of the weather of the next 5 days
 func (c *Client) WeatherForecast(args WeatherArgs) (Forecast, error) {
 	endpt := c.baseURL.ResolveReference(&url.URL{Path: forecastPath})
 	req, err := http.NewRequest("GET", endpt.String(), nil)
