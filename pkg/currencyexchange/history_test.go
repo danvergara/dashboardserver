@@ -6,6 +6,7 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -36,17 +37,26 @@ func TestGetHistoricalCurrencyRates(t *testing.T) {
 
 	defer sv.Close()
 
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
+
 	c := Client{
-		BaseURL: sv.URL,
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-	queryParams.Add("start_at", "2020-02-18")
-	queryParams.Add("end_at", "2020-02-20")
-	queryParams.Add("base", "USD")
-	queryParams.Add("symbols", "MXN")
+	startAt, _ := time.Parse(dateLayout, "2020-02-18")
+	endAt, _ := time.Parse(dateLayout, "2020-02-20")
 
-	resp, err := c.GetHistoricalCurrencyRate(queryParams)
+	params := HistoryArgs{
+		Base:    "USD",
+		Symbols: []string{"MXN"},
+		StartAt: startAt,
+		EndAt:   endAt,
+	}
+
+	resp, err := c.HistoricalCurrencyRate(params)
 
 	assert.Nil(t, err)
 	assert.Equal(t, 18.638683432, resp.Rates["2020-02-18"]["MXN"])

@@ -5,39 +5,55 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
+	"strings"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestPassingWrongBase(t *testing.T) {
 	sv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		errorCurrencyData := ExchangeRateData{
-			Error: "Base 'USsD' is not supported.",
+		errorResponse := []byte(`
+			{
+				"error": "Base 'USsD' is not supported."
+			}
+		`)
+
+		w.WriteHeader(http.StatusBadRequest)
+
+		_, err := w.Write(errorResponse)
+
+		if err != nil {
+			t.Error(err.Error())
 		}
 
 		if r.URL.Path != "/latest" {
 			t.Error("Bad latest paht")
 		}
 
-		econder := json.NewEncoder(w)
-		err := econder.Encode(errorCurrencyData)
-		if err != nil {
-			t.Error(err.Error())
-		}
 	}))
 
 	defer sv.Close()
+
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
+
 	c := Client{
-		BaseURL: sv.URL,
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-	queryParams.Add("base", "WRONGBASE")
-	_, err := c.GetLatestCurrencyExchange(queryParams)
+	// Wrong base value
+	params := LatestArgs{
+		Base: "USsD",
+	}
+
+	_, err := c.LatestCurrencyExchange(params)
 
 	assert.NotNil(t, err)
-	assert.Equal(t, "Base 'USsD' is not supported.", err.Error())
+	assert.True(t, strings.Contains(err.Error(), "Base 'USsD' is not supported."))
 }
 
 func TestGetLatestCurrencyExchange(t *testing.T) {
@@ -61,15 +77,21 @@ func TestGetLatestCurrencyExchange(t *testing.T) {
 
 	defer sv.Close()
 
+	rawURL, _ := url.Parse(sv.URL)
+
+	testClient := &http.Client{Timeout: time.Minute}
+
 	c := Client{
-		BaseURL: sv.URL,
+		baseURL:    rawURL,
+		httpClient: testClient,
 	}
 
-	queryParams := url.Values{}
-	queryParams.Add("base", "USD")
-	queryParams.Add("symbols", "MXN")
+	params := LatestArgs{
+		Base:    "USD",
+		Symbols: []string{"MXN"},
+	}
 
-	resp, err := c.GetLatestCurrencyExchange(queryParams)
+	resp, err := c.LatestCurrencyExchange(params)
 
 	assert.Nil(t, err)
 	assert.Equal(t, 18.9966669753, resp.Rates["MXN"])
