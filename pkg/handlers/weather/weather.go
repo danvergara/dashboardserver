@@ -10,6 +10,8 @@ import (
 	"github.com/danvergara/dashboardserver/pkg/openweather"
 )
 
+//lint:file-ignore U1000 Ignore all unused code, it's generated
+
 // The Current Weather data in json format
 // swagger:response currentWeather
 type currentWeatherWrapper struct {

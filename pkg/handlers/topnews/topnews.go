@@ -10,6 +10,8 @@ import (
 	"github.com/danvergara/newsapigo"
 )
 
+//lint:file-ignore U1000 Ignore all unused code, it's generated
+
 // The Top News response in json format
 // swagger:response articlesReponse
 type articlesReponseWrapper struct {
