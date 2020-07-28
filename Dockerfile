@@ -21,5 +21,6 @@ RUN apk --update add ca-certificates
 WORKDIR /app
 
 COPY --from=base /app/app .
+COPY --from=base /app/swagger.yaml .
 ENTRYPOINT ["./app"]
 EXPOSE 8000
