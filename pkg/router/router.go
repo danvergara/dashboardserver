@@ -1,6 +1,8 @@
 package router
 
 import (
+	"net/http"
+
 	"github.com/danvergara/dashboardserver/pkg/application"
 	"github.com/danvergara/dashboardserver/pkg/handlers/economics"
 	"github.com/danvergara/dashboardserver/pkg/handlers/healthcheck"
@@ -11,6 +13,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/cors"
+	openmiddleware "github.com/go-openapi/runtime/middleware"
 )
 
 // Response struct
@@ -22,6 +25,9 @@ type Response struct {
 func New(app *application.Application) *chi.Mux {
 	mux := chi.NewRouter()
 	jwtMiddleware := auth.NewJWTMiddlerware()
+
+	ops := openmiddleware.RedocOpts{SpecURL: "./swagger.yaml"}
+	sh := openmiddleware.Redoc(ops, nil)
 
 	mux.Use(cors.Handler(cors.Options{
 		// AllowedOrigins: []string{"https://foo.com"}, // Use this to allow specific origin hosts
@@ -40,6 +46,8 @@ func New(app *application.Application) *chi.Mux {
 	mux.Use(middleware.Recoverer)
 
 	mux.Get("/_healthcheck", healthcheck.Healthcheck(app))
+	mux.Handle("/docs", sh)
+	mux.Handle("/swagger.yaml", http.FileServer(http.Dir("./")))
 
 	mux.Route("/v1", func(r chi.Router) {
 		r.Use(jwtMiddleware.Handler)
