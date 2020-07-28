@@ -10,15 +10,41 @@ import (
 	"github.com/danvergara/dashboardserver/pkg/openweather"
 )
 
+// The Current Weather data in json format
+// swagger:response currentWeather
+type currentWeatherWrapper struct {
+	// The neede weather data
+	// in: body
+	Body CurrentWeatherResponse
+}
+
 // CurrentWeatherResponse {"current-weather": openweather.Weather}
 type CurrentWeatherResponse struct {
 	CurrentWeather openweather.Weather `json:"current-weather"`
+}
+
+// The Forecast Weather data in json format
+// swagger:response weatherForecast
+type weatherForecastWrapper struct {
+	// The weather forecast data for the next 5 days
+	// in: body
+	Body ForecastResponse
 }
 
 // ForecastResponse {"weather-forecast": openweather.Forecast}
 type ForecastResponse struct {
 	WeatherForecast openweather.Forecast `json:"weather-forecast"`
 }
+
+// swagger:route GET /v1/current-weather current-weather
+//
+// Returns the current weather data
+//
+// Produces:
+// - application/json
+//
+// Responses:
+//	200: currentWeather
 
 // CurrentWeather Returns the main data of the current Weather
 func CurrentWeather(app *application.Application) http.HandlerFunc {
@@ -45,6 +71,16 @@ func CurrentWeather(app *application.Application) http.HandlerFunc {
 		}
 	}
 }
+
+// swagger:route GET /v1/weather-forecast weather-forecast
+//
+// Returns the weather forecast data for the next 5 days
+//
+// Produces:
+// - application/json
+//
+// Responses:
+//	200: weatherForecast
 
 // Forecast returns the forecast of the next 5 days
 func Forecast(app *application.Application) http.HandlerFunc {

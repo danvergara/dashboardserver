@@ -1,3 +1,18 @@
+// Watchtower Dashboard Server
+//
+// The main REST API used in the Watchtower project
+//
+//	Schemes: [http, https]
+//  Host: watchtowerbackend.com
+//  BasePath: /
+// 	Version: 0.2.0
+//
+// 	Consumes:
+//	- application/json
+//
+//	Produces:
+//	- application/json
+// swagger:meta
 package main
 
 import (
