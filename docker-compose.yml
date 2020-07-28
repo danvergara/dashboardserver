@@ -15,6 +15,8 @@ services:
       - .env
     ports:
       - "8000:8000"
+    volumes:
+      - ./:/app:z
     entrypoint: ["/bin/bash", "./scripts/entrypoint.dev.sh"]
     networks:
       - dashboardserver-net

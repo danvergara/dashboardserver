@@ -38,13 +38,16 @@ func New(app *application.Application) *chi.Mux {
 	mux.Use(middleware.RealIP)
 	mux.Use(middleware.Logger)
 	mux.Use(middleware.Recoverer)
-	mux.Use(jwtMiddleware.Handler)
 
 	mux.Get("/_healthcheck", healthcheck.Healthcheck(app))
-	mux.Get("/v1/top-news", topnews.TopNews(app))
-	mux.Get("/v1/current-weather", weather.CurrentWeather(app))
-	mux.Get("/v1/weather-forecast", weather.Forecast(app))
-	mux.Get("/v1/historical-currency-rates", economics.HistoricalCurrencyRates(app))
-	mux.Get("/v1/currency-exchange", economics.CurrencyExchange(app))
+
+	mux.Route("/v1", func(r chi.Router) {
+		r.Use(jwtMiddleware.Handler)
+		r.Get("/top-news", topnews.TopNews(app))
+		r.Get("/current-weather", weather.CurrentWeather(app))
+		r.Get("/weather-forecast", weather.Forecast(app))
+		r.Get("/historical-currency-rates", economics.HistoricalCurrencyRates(app))
+		r.Get("/currency-exchange", economics.CurrencyExchange(app))
+	})
 	return mux
 }
