@@ -81,6 +81,16 @@ podman-up:
 podman-down:
 	podman-compose down
 
+.PHONY: check_install
+## check_install: check if swagger is installed
+check_install:
+	which swagger || GO111MODULE=off go get -u github.com/go-swagger/go-swagger/cmd/swagger
+
+.PHONY: swag
+## swagger: generate or update the swagger config file
+swagger: check_install
+	swagger generate spec -o ./swagger.yaml --scan-models
+
 .PHONY: help
 ## help: Prints this help message
 help:
