@@ -8,6 +8,8 @@ import (
 	"github.com/danvergara/dashboardserver/pkg/application"
 )
 
+//lint:file-ignore U1000 Ignore all unused code, it's generated
+
 // swagger:response healthcheckResponse
 type healthcheckResponseWrapper struct {
 	// The expected healthcheck response to see if the service is running

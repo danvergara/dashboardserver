@@ -10,6 +10,8 @@ import (
 	"github.com/danvergara/dashboardserver/pkg/currencyexchange"
 )
 
+//lint:file-ignore U1000 Ignore all unused code, it's generated
+
 // The current currency exchange between MXN-USD
 // swagger:response currencyExchangeResponse
 type currencyExchangeResponseWrapper struct {
