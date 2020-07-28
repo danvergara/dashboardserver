@@ -1,0 +1,357 @@
+basePath: /
+consumes:
+- application/json
+definitions:
+  Article:
+    properties:
+      author:
+        description: The author of the article
+        type: string
+        x-go-name: Author
+      contentt:
+        description: The unformatted content of the article, where available. This is truncated to 200 chars
+        type: string
+        x-go-name: Content
+      description:
+        description: A description or snippet from the article.
+        type: string
+        x-go-name: Description
+      publishedAt:
+        description: The date and time that the article was published, in UTC (+000)
+        type: string
+        x-go-name: PublishedAt
+      source:
+        $ref: '#/definitions/Source'
+      title:
+        description: The headline or title of the article
+        type: string
+        x-go-name: Title
+      url:
+        description: The direct URL to the article
+        type: string
+        x-go-name: URL
+      urlToImage:
+        description: The URL to a relevant image for the article
+        type: string
+        x-go-name: URLToImage
+    title: Article stores the data in the article. It is an item in the Articles slice.
+    type: object
+    x-go-package: github.com/danvergara/newsapigo
+  ArticlesReponse:
+    description: 'ArticlesReponse substitutes the old response {"news": response.Articles}'
+    properties:
+      news:
+        items:
+          $ref: '#/definitions/Article'
+        type: array
+        x-go-name: News
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/topnews
+  Clouds:
+    description: Clouds data
+    properties:
+      all:
+        format: int64
+        type: integer
+        x-go-name: All
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/openweather
+  CurrencyExchangeResponse:
+    description: 'CurrencyExchangeResponse {"currency-exchange": currencyexchange.ExchangeRateData}'
+    properties:
+      currency-exchange:
+        $ref: '#/definitions/ExchangeRateData'
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/economics
+  CurrentWeatherResponse:
+    description: 'CurrentWeatherResponse {"current-weather": openweather.Weather}'
+    properties:
+      current-weather:
+        $ref: '#/definitions/Weather'
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/weather
+  ExchangeRateData:
+    description: ExchangeRateData stores the exchage rate between two currencies
+    properties:
+      base:
+        type: string
+        x-go-name: Base
+      date:
+        type: string
+        x-go-name: Date
+      error:
+        type: string
+        x-go-name: Error
+      rates:
+        additionalProperties:
+          format: double
+          type: number
+        type: object
+        x-go-name: Rates
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/currencyexchange
+  Forecast:
+    description: Forecast has a list of weather objects
+    properties:
+      error_message:
+        type: string
+        x-go-name: ErrorMessage
+      list:
+        items:
+          $ref: '#/definitions/Weather'
+        type: array
+        x-go-name: List
+      status_code:
+        format: int64
+        type: integer
+        x-go-name: StatusCode
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/openweather
+  ForecastResponse:
+    description: 'ForecastResponse {"weather-forecast": openweather.Forecast}'
+    properties:
+      weather-forecast:
+        $ref: '#/definitions/Forecast'
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/weather
+  HistoricalCurrencyResponse:
+    description: 'HistoricalCurrencyResponse struct {"historical-currency-rates": currencyexchange.HistoricalExchangeRateData}'
+    properties:
+      historical-currency-rates:
+        $ref: '#/definitions/HistoricalExchangeRateData'
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/economics
+  HistoricalExchangeRateData:
+    description: HistoricalExchangeRateData stores the hisotircal exchage currency rate
+    properties:
+      base:
+        type: string
+        x-go-name: Base
+      end_at:
+        type: string
+        x-go-name: EndAt
+      error:
+        type: string
+        x-go-name: Error
+      rates:
+        additionalProperties:
+          additionalProperties:
+            format: double
+            type: number
+          type: object
+        type: object
+        x-go-name: Rates
+      start_at:
+        type: string
+        x-go-name: StartAt
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/currencyexchange
+  Main:
+    description: Main info of the current weather
+    properties:
+      feels_like:
+        format: double
+        type: number
+        x-go-name: FeelsLike
+      humidity:
+        format: int64
+        type: integer
+        x-go-name: Humidity
+      pressure:
+        format: int64
+        type: integer
+        x-go-name: Pressure
+      temp:
+        format: double
+        type: number
+        x-go-name: Temp
+      temp_max:
+        format: double
+        type: number
+        x-go-name: TempMax
+      temp_min:
+        format: double
+        type: number
+        x-go-name: TempMin
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/openweather
+  MetaWeather:
+    description: MetaWeather struct
+    properties:
+      description:
+        type: string
+        x-go-name: Description
+      icon:
+        type: string
+        x-go-name: Icon
+      main:
+        type: string
+        x-go-name: Main
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/openweather
+  Source:
+    properties:
+      category:
+        description: The type of news to expect from this news source
+        type: string
+        x-go-name: Category
+      country:
+        description: The country this news source is based in (and primarily writes about)
+        type: string
+        x-go-name: Country
+      description:
+        description: A description of the news source
+        type: string
+        x-go-name: Description
+      id:
+        description: The identifier of the news source. You can use this with our other endpoints
+        type: string
+        x-go-name: ID
+      language:
+        description: The language that this news source writes in
+        type: string
+        x-go-name: Language
+      name:
+        description: The name of the news source
+        type: string
+        x-go-name: Name
+      url:
+        description: The URL of the homepage
+        type: string
+        x-go-name: URL
+    title: Source stores the data of the source that published the article.
+    type: object
+    x-go-package: github.com/danvergara/newsapigo
+  Weather:
+    description: Weather object
+    properties:
+      clouds:
+        $ref: '#/definitions/Clouds'
+      cod:
+        format: int64
+        type: integer
+        x-go-name: StatusCode
+      dt_txt:
+        type: string
+        x-go-name: DtTxt
+      main:
+        $ref: '#/definitions/Main'
+      message:
+        type: string
+        x-go-name: Message
+      name:
+        type: string
+        x-go-name: Name
+      weather:
+        items:
+          $ref: '#/definitions/MetaWeather'
+        type: array
+        x-go-name: Weather
+      wind:
+        $ref: '#/definitions/Wind'
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/openweather
+  Wind:
+    description: Wind data
+    properties:
+      speed:
+        format: double
+        type: number
+        x-go-name: Speed
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/openweather
+  healthcheckResponse:
+    properties:
+      alive:
+        type: boolean
+        x-go-name: Alive
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/healthcheck
+host: watchtowerbackend.com
+info:
+  description: |-
+    The main REST API used in the Watchtower project
+
+    Schemes: [http, https]
+  title: Watchtower Dashboard Server
+  version: 0.2.0
+paths:
+  /_healthcheck:
+    get:
+      description: Checks if the application is running
+      operationId: healthcheck
+      responses:
+        "200":
+          $ref: '#/responses/healthcheckResponse'
+  /v1/currency-exchange:
+    get:
+      description: Returns a the current currency exchange rate between MXN-USD
+      operationId: currency-exchange
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/currencyExchangeResponse'
+  /v1/current-weather:
+    get:
+      description: Returns the current weather data
+      operationId: current-weather
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/currentWeather'
+  /v1/historical-currency-rates:
+    get:
+      description: Returns a the historical currency exchange rates between MXN-USD of the previous 20 days
+      operationId: historical-currency-rates
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/historicalCurrencyResponse'
+  /v1/top-news:
+    get:
+      description: Returns a list of the top business news in MX
+      operationId: topnews
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/articlesReponse'
+  /v1/weather-forecast:
+    get:
+      description: Returns the weather forecast data for the next 5 days
+      operationId: weather-forecast
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/weatherForecast'
+produces:
+- application/json
+responses:
+  articlesReponse:
+    description: The Top News response in json format
+    schema:
+      $ref: '#/definitions/ArticlesReponse'
+  currencyExchangeResponse:
+    description: The current currency exchange between MXN-USD
+    schema:
+      $ref: '#/definitions/CurrencyExchangeResponse'
+  currentWeather:
+    description: The Current Weather data in json format
+    schema:
+      $ref: '#/definitions/CurrentWeatherResponse'
+  healthcheckResponse:
+    schema:
+      $ref: '#/definitions/healthcheckResponse'
+  historicalCurrencyResponse:
+    description: The Historical Currency Response between MXN-USD
+    schema:
+      $ref: '#/definitions/HistoricalCurrencyResponse'
+  weatherForecast:
+    description: The Forecast Weather data in json format
+    schema:
+      $ref: '#/definitions/ForecastResponse'
+swagger: "2.0"
