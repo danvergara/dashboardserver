@@ -10,10 +10,27 @@ import (
 	"github.com/danvergara/newsapigo"
 )
 
+// The Top News response in json format
+// swagger:response articlesReponse
+type articlesReponseWrapper struct {
+	// in: body
+	Body ArticlesReponse
+}
+
 // ArticlesReponse substitutes the old response {"news": response.Articles}
 type ArticlesReponse struct {
 	News []newsapigo.Article `json:"news"`
 }
+
+// swagger:route GET /v1/top-news topnews
+//
+// Returns a list of the top business news in MX
+//
+// Produces:
+// - application/json
+//
+// Responses:
+//	200: articlesReponse
 
 // TopNews returns the top news about business in Mexico
 // As we can see, newsapigo is the library that does the hard work
