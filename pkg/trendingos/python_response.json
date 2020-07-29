@@ -1,0 +1,927 @@
+[
+  {
+    "author": "vt-vl-lab",
+    "name": "3d-photo-inpainting",
+    "avatar": "https://github.com/vt-vl-lab.png",
+    "url": "https://github.com/vt-vl-lab/3d-photo-inpainting",
+    "description": "[CVPR 2020] 3D Photography using Context-aware Layered Depth Inpainting",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 3957,
+    "forks": 521,
+    "currentPeriodStars": 419,
+    "builtBy": [
+      {
+        "username": "ShihMengLi",
+        "href": "https://github.com/ShihMengLi",
+        "avatar": "https://avatars2.githubusercontent.com/u/20377635"
+      },
+      {
+        "username": "jbhuang0604",
+        "href": "https://github.com/jbhuang0604",
+        "avatar": "https://avatars3.githubusercontent.com/u/987204"
+      },
+      {
+        "username": "safijari",
+        "href": "https://github.com/safijari",
+        "avatar": "https://avatars1.githubusercontent.com/u/5191844"
+      },
+      {
+        "username": "LemonATsu",
+        "href": "https://github.com/LemonATsu",
+        "avatar": "https://avatars3.githubusercontent.com/u/10173487"
+      }
+    ]
+  },
+  {
+    "author": "gto76",
+    "name": "python-cheatsheet",
+    "avatar": "https://github.com/gto76.png",
+    "url": "https://github.com/gto76/python-cheatsheet",
+    "description": "Comprehensive Python Cheatsheet",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 14102,
+    "forks": 2829,
+    "currentPeriodStars": 789,
+    "builtBy": [
+      {
+        "username": "gto76",
+        "href": "https://github.com/gto76",
+        "avatar": "https://avatars0.githubusercontent.com/u/1396046"
+      },
+      {
+        "username": "s-weigand",
+        "href": "https://github.com/s-weigand",
+        "avatar": "https://avatars2.githubusercontent.com/u/9513634"
+      },
+      {
+        "username": "theconsultant",
+        "href": "https://github.com/theconsultant",
+        "avatar": "https://avatars0.githubusercontent.com/u/1421526"
+      },
+      {
+        "username": "tweakimp",
+        "href": "https://github.com/tweakimp",
+        "avatar": "https://avatars0.githubusercontent.com/u/20489521"
+      },
+      {
+        "username": "SSARCandy",
+        "href": "https://github.com/SSARCandy",
+        "avatar": "https://avatars1.githubusercontent.com/u/6803791"
+      }
+    ]
+  },
+  {
+    "author": "deepinsight",
+    "name": "insightface",
+    "avatar": "https://github.com/deepinsight.png",
+    "url": "https://github.com/deepinsight/insightface",
+    "description": "Face Analysis Project on MXNet",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 7123,
+    "forks": 2540,
+    "currentPeriodStars": 68,
+    "builtBy": [
+      {
+        "username": "nttstar",
+        "href": "https://github.com/nttstar",
+        "avatar": "https://avatars0.githubusercontent.com/u/97733"
+      },
+      {
+        "username": "jiankangdeng",
+        "href": "https://github.com/jiankangdeng",
+        "avatar": "https://avatars1.githubusercontent.com/u/8391417"
+      },
+      {
+        "username": "ChenJoya",
+        "href": "https://github.com/ChenJoya",
+        "avatar": "https://avatars3.githubusercontent.com/u/20626415"
+      },
+      {
+        "username": "jingyang2017",
+        "href": "https://github.com/jingyang2017",
+        "avatar": "https://avatars3.githubusercontent.com/u/33462014"
+      },
+      {
+        "username": "yingfeng",
+        "href": "https://github.com/yingfeng",
+        "avatar": "https://avatars1.githubusercontent.com/u/7248"
+      }
+    ]
+  },
+  {
+    "author": "0voice",
+    "name": "interview_internal_reference",
+    "avatar": "https://github.com/0voice.png",
+    "url": "https://github.com/0voice/interview_internal_reference",
+    "description": "2020年最新总结，阿里，腾讯，百度，美团，头条等技术面试题目，以及答案，专家出题人分析汇总。",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 28103,
+    "forks": 7733,
+    "currentPeriodStars": 175,
+    "builtBy": [
+      {
+        "username": "zhiyong0804",
+        "href": "https://github.com/zhiyong0804",
+        "avatar": "https://avatars2.githubusercontent.com/u/15864088"
+      },
+      {
+        "username": "wangbojing",
+        "href": "https://github.com/wangbojing",
+        "avatar": "https://avatars3.githubusercontent.com/u/18027560"
+      },
+      {
+        "username": "pyinx",
+        "href": "https://github.com/pyinx",
+        "avatar": "https://avatars3.githubusercontent.com/u/3828540"
+      },
+      {
+        "username": "SJshenjian",
+        "href": "https://github.com/SJshenjian",
+        "avatar": "https://avatars0.githubusercontent.com/u/25132537"
+      },
+      {
+        "username": "EvanLeung08",
+        "href": "https://github.com/EvanLeung08",
+        "avatar": "https://avatars1.githubusercontent.com/u/9621088"
+      }
+    ]
+  },
+  {
+    "author": "floodsung",
+    "name": "Deep-Learning-Papers-Reading-Roadmap",
+    "avatar": "https://github.com/floodsung.png",
+    "url": "https://github.com/floodsung/Deep-Learning-Papers-Reading-Roadmap",
+    "description": "Deep Learning papers reading roadmap for anyone who are eager to learn this amazing tech!",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 27908,
+    "forks": 6181,
+    "currentPeriodStars": 753,
+    "builtBy": [
+      {
+        "username": "floodsung",
+        "href": "https://github.com/floodsung",
+        "avatar": "https://avatars2.githubusercontent.com/u/3880963"
+      },
+      {
+        "username": "Hrant-Khachatrian",
+        "href": "https://github.com/Hrant-Khachatrian",
+        "avatar": "https://avatars3.githubusercontent.com/u/933808"
+      },
+      {
+        "username": "mjanv",
+        "href": "https://github.com/mjanv",
+        "avatar": "https://avatars3.githubusercontent.com/u/5563461"
+      },
+      {
+        "username": "7oud",
+        "href": "https://github.com/7oud",
+        "avatar": "https://avatars1.githubusercontent.com/u/7981826"
+      },
+      {
+        "username": "clouds56",
+        "href": "https://github.com/clouds56",
+        "avatar": "https://avatars3.githubusercontent.com/u/730813"
+      }
+    ]
+  },
+  {
+    "author": "David00",
+    "name": "rpi-power-monitor",
+    "avatar": "https://github.com/David00.png",
+    "url": "https://github.com/David00/rpi-power-monitor",
+    "description": "Raspberry Pi Power Monitor",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 513,
+    "forks": 25,
+    "currentPeriodStars": 291,
+    "builtBy": [
+      {
+        "username": "David00",
+        "href": "https://github.com/David00",
+        "avatar": "https://avatars1.githubusercontent.com/u/17997328"
+      }
+    ]
+  },
+  {
+    "author": "openai",
+    "name": "gpt-2",
+    "avatar": "https://github.com/openai.png",
+    "url": "https://github.com/openai/gpt-2",
+    "description": "Code for the paper \"Language Models are Unsupervised Multitask Learners\"",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 12603,
+    "forks": 3090,
+    "currentPeriodStars": 175,
+    "builtBy": [
+      {
+        "username": "WuTheFWasThat",
+        "href": "https://github.com/WuTheFWasThat",
+        "avatar": "https://avatars0.githubusercontent.com/u/1479648"
+      },
+      {
+        "username": "jackclarksf",
+        "href": "https://github.com/jackclarksf",
+        "avatar": "https://avatars2.githubusercontent.com/u/6484755"
+      },
+      {
+        "username": "christopherhesse",
+        "href": "https://github.com/christopherhesse",
+        "avatar": "https://avatars1.githubusercontent.com/u/440336"
+      },
+      {
+        "username": "imgntn",
+        "href": "https://github.com/imgntn",
+        "avatar": "https://avatars3.githubusercontent.com/u/843228"
+      },
+      {
+        "username": "natemurthy",
+        "href": "https://github.com/natemurthy",
+        "avatar": "https://avatars1.githubusercontent.com/u/1788878"
+      }
+    ]
+  },
+  {
+    "author": "openai",
+    "name": "gym",
+    "avatar": "https://github.com/openai.png",
+    "url": "https://github.com/openai/gym",
+    "description": "A toolkit for developing and comparing reinforcement learning algorithms.",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 21612,
+    "forks": 6140,
+    "currentPeriodStars": 191,
+    "builtBy": [
+      {
+        "username": "gdb",
+        "href": "https://github.com/gdb",
+        "avatar": "https://avatars0.githubusercontent.com/u/211857"
+      },
+      {
+        "username": "jietang",
+        "href": "https://github.com/jietang",
+        "avatar": "https://avatars2.githubusercontent.com/u/114302"
+      },
+      {
+        "username": "pzhokhov",
+        "href": "https://github.com/pzhokhov",
+        "avatar": "https://avatars3.githubusercontent.com/u/25395937"
+      },
+      {
+        "username": "jonasschneider",
+        "href": "https://github.com/jonasschneider",
+        "avatar": "https://avatars0.githubusercontent.com/u/8098"
+      },
+      {
+        "username": "tlbtlbtlb",
+        "href": "https://github.com/tlbtlbtlb",
+        "avatar": "https://avatars0.githubusercontent.com/u/219508"
+      }
+    ]
+  },
+  {
+    "author": "PaddlePaddle",
+    "name": "PaddleDetection",
+    "avatar": "https://github.com/PaddlePaddle.png",
+    "url": "https://github.com/PaddlePaddle/PaddleDetection",
+    "description": "Object detection and instance segmentation toolkit based on PaddlePaddle.",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 737,
+    "forks": 277,
+    "currentPeriodStars": 96,
+    "builtBy": [
+      {
+        "username": "jerrywgz",
+        "href": "https://github.com/jerrywgz",
+        "avatar": "https://avatars3.githubusercontent.com/u/22989727"
+      },
+      {
+        "username": "heavengate",
+        "href": "https://github.com/heavengate",
+        "avatar": "https://avatars0.githubusercontent.com/u/12605721"
+      },
+      {
+        "username": "still-wait",
+        "href": "https://github.com/still-wait",
+        "avatar": "https://avatars2.githubusercontent.com/u/15628872"
+      },
+      {
+        "username": "willthefrog",
+        "href": "https://github.com/willthefrog",
+        "avatar": "https://avatars0.githubusercontent.com/u/2098301"
+      },
+      {
+        "username": "qingqing01",
+        "href": "https://github.com/qingqing01",
+        "avatar": "https://avatars2.githubusercontent.com/u/7845005"
+      }
+    ]
+  },
+  {
+    "author": "minimaxir",
+    "name": "gpt-3-experiments",
+    "avatar": "https://github.com/minimaxir.png",
+    "url": "https://github.com/minimaxir/gpt-3-experiments",
+    "description": "Test prompts for OpenAI's GPT-3 API and the resulting AI-generated texts.",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 376,
+    "forks": 26,
+    "currentPeriodStars": 100,
+    "builtBy": [
+      {
+        "username": "minimaxir",
+        "href": "https://github.com/minimaxir",
+        "avatar": "https://avatars0.githubusercontent.com/u/2179708"
+      }
+    ]
+  },
+  {
+    "author": "Pitt-CSC",
+    "name": "Summer2021-Internships",
+    "avatar": "https://github.com/Pitt-CSC.png",
+    "url": "https://github.com/Pitt-CSC/Summer2021-Internships",
+    "description": "Collection of Summer 2021 tech internships!",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 793,
+    "forks": 52,
+    "currentPeriodStars": 148,
+    "builtBy": [
+      {
+        "username": "Zmwang622",
+        "href": "https://github.com/Zmwang622",
+        "avatar": "https://avatars0.githubusercontent.com/u/36709118"
+      },
+      {
+        "username": "varughese",
+        "href": "https://github.com/varughese",
+        "avatar": "https://avatars1.githubusercontent.com/u/13937711"
+      },
+      {
+        "username": "azharichenko",
+        "href": "https://github.com/azharichenko",
+        "avatar": "https://avatars2.githubusercontent.com/u/4131575"
+      },
+      {
+        "username": "aaronw4ng",
+        "href": "https://github.com/aaronw4ng",
+        "avatar": "https://avatars2.githubusercontent.com/u/22530347"
+      },
+      {
+        "username": "rohit-ganguly",
+        "href": "https://github.com/rohit-ganguly",
+        "avatar": "https://avatars2.githubusercontent.com/u/20001884"
+      }
+    ]
+  },
+  {
+    "author": "vinta",
+    "name": "awesome-python",
+    "avatar": "https://github.com/vinta.png",
+    "url": "https://github.com/vinta/awesome-python",
+    "description": "A curated list of awesome Python frameworks, libraries, software and resources",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 84835,
+    "forks": 16664,
+    "currentPeriodStars": 322,
+    "builtBy": [
+      {
+        "username": "vinta",
+        "href": "https://github.com/vinta",
+        "avatar": "https://avatars0.githubusercontent.com/u/652070"
+      },
+      {
+        "username": "dhamaniasad",
+        "href": "https://github.com/dhamaniasad",
+        "avatar": "https://avatars1.githubusercontent.com/u/4560482"
+      },
+      {
+        "username": "vndmtrx",
+        "href": "https://github.com/vndmtrx",
+        "avatar": "https://avatars1.githubusercontent.com/u/596651"
+      },
+      {
+        "username": "ellisonleao",
+        "href": "https://github.com/ellisonleao",
+        "avatar": "https://avatars2.githubusercontent.com/u/178641"
+      },
+      {
+        "username": "Alir3z4",
+        "href": "https://github.com/Alir3z4",
+        "avatar": "https://avatars1.githubusercontent.com/u/591113"
+      }
+    ]
+  },
+  {
+    "author": "Palashio",
+    "name": "libra",
+    "avatar": "https://github.com/Palashio.png",
+    "url": "https://github.com/Palashio/libra",
+    "description": "Fully automated machine learning in one-liners.",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 416,
+    "forks": 59,
+    "currentPeriodStars": 140,
+    "builtBy": [
+      {
+        "username": "Palashio",
+        "href": "https://github.com/Palashio",
+        "avatar": "https://avatars1.githubusercontent.com/u/35114859"
+      },
+      {
+        "username": "Sar1hak",
+        "href": "https://github.com/Sar1hak",
+        "avatar": "https://avatars3.githubusercontent.com/u/42771477"
+      },
+      {
+        "username": "anas-awadalla",
+        "href": "https://github.com/anas-awadalla",
+        "avatar": "https://avatars1.githubusercontent.com/u/55931244"
+      },
+      {
+        "username": "ramyabuva",
+        "href": "https://github.com/ramyabuva",
+        "avatar": "https://avatars0.githubusercontent.com/u/54818854"
+      },
+      {
+        "username": "pahuja-gor",
+        "href": "https://github.com/pahuja-gor",
+        "avatar": "https://avatars2.githubusercontent.com/u/36912136"
+      }
+    ]
+  },
+  {
+    "author": "yzhao062",
+    "name": "pyod",
+    "avatar": "https://github.com/yzhao062.png",
+    "url": "https://github.com/yzhao062/pyod",
+    "description": "A Python Toolbox for Scalable Outlier Detection (Anomaly Detection)",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 3410,
+    "forks": 698,
+    "currentPeriodStars": 76,
+    "builtBy": [
+      {
+        "username": "yzhao062",
+        "href": "https://github.com/yzhao062",
+        "avatar": "https://avatars2.githubusercontent.com/u/15079146"
+      },
+      {
+        "username": "ZainNasrullah",
+        "href": "https://github.com/ZainNasrullah",
+        "avatar": "https://avatars1.githubusercontent.com/u/22140675"
+      },
+      {
+        "username": "John-Almardeny",
+        "href": "https://github.com/John-Almardeny",
+        "avatar": "https://avatars2.githubusercontent.com/u/19558793"
+      },
+      {
+        "username": "DrewNow",
+        "href": "https://github.com/DrewNow",
+        "avatar": "https://avatars3.githubusercontent.com/u/49587577"
+      },
+      {
+        "username": "winstonll",
+        "href": "https://github.com/winstonll",
+        "avatar": "https://avatars3.githubusercontent.com/u/9096508"
+      }
+    ]
+  },
+  {
+    "author": "openai",
+    "name": "baselines",
+    "avatar": "https://github.com/openai.png",
+    "url": "https://github.com/openai/baselines",
+    "description": "OpenAI Baselines: high-quality implementations of reinforcement learning algorithms",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 10260,
+    "forks": 3529,
+    "currentPeriodStars": 76,
+    "builtBy": [
+      {
+        "username": "pzhokhov",
+        "href": "https://github.com/pzhokhov",
+        "avatar": "https://avatars3.githubusercontent.com/u/25395937"
+      },
+      {
+        "username": "joschu",
+        "href": "https://github.com/joschu",
+        "avatar": "https://avatars2.githubusercontent.com/u/144178"
+      },
+      {
+        "username": "andrewliao11",
+        "href": "https://github.com/andrewliao11",
+        "avatar": "https://avatars2.githubusercontent.com/u/10975252"
+      },
+      {
+        "username": "siemanko",
+        "href": "https://github.com/siemanko",
+        "avatar": "https://avatars3.githubusercontent.com/u/1537435"
+      },
+      {
+        "username": "christopherhesse",
+        "href": "https://github.com/christopherhesse",
+        "avatar": "https://avatars1.githubusercontent.com/u/440336"
+      }
+    ]
+  },
+  {
+    "author": "awslabs",
+    "name": "serverless-application-model",
+    "avatar": "https://github.com/awslabs.png",
+    "url": "https://github.com/awslabs/serverless-application-model",
+    "description": "AWS Serverless Application Model (SAM) is an open-source framework for building serverless applications",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 7241,
+    "forks": 1850,
+    "currentPeriodStars": 34,
+    "builtBy": [
+      {
+        "username": "keetonian",
+        "href": "https://github.com/keetonian",
+        "avatar": "https://avatars3.githubusercontent.com/u/14004203"
+      },
+      {
+        "username": "ShreyaGangishetty",
+        "href": "https://github.com/ShreyaGangishetty",
+        "avatar": "https://avatars3.githubusercontent.com/u/7549138"
+      },
+      {
+        "username": "praneetap",
+        "href": "https://github.com/praneetap",
+        "avatar": "https://avatars3.githubusercontent.com/u/3377747"
+      },
+      {
+        "username": "sanathkr",
+        "href": "https://github.com/sanathkr",
+        "avatar": "https://avatars0.githubusercontent.com/u/22755571"
+      },
+      {
+        "username": "brettstack",
+        "href": "https://github.com/brettstack",
+        "avatar": "https://avatars3.githubusercontent.com/u/1882775"
+      }
+    ]
+  },
+  {
+    "author": "ankitects",
+    "name": "anki",
+    "avatar": "https://github.com/ankitects.png",
+    "url": "https://github.com/ankitects/anki",
+    "description": "Anki for desktop computers",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 6817,
+    "forks": 1074,
+    "currentPeriodStars": 59,
+    "builtBy": [
+      {
+        "username": "dae",
+        "href": "https://github.com/dae",
+        "avatar": "https://avatars2.githubusercontent.com/u/180542"
+      },
+      {
+        "username": "Arthur-Milchior",
+        "href": "https://github.com/Arthur-Milchior",
+        "avatar": "https://avatars2.githubusercontent.com/u/357361"
+      },
+      {
+        "username": "evandrocoan",
+        "href": "https://github.com/evandrocoan",
+        "avatar": "https://avatars2.githubusercontent.com/u/5332158"
+      },
+      {
+        "username": "glutanimate",
+        "href": "https://github.com/glutanimate",
+        "avatar": "https://avatars0.githubusercontent.com/u/5459332"
+      },
+      {
+        "username": "sobjornstad",
+        "href": "https://github.com/sobjornstad",
+        "avatar": "https://avatars3.githubusercontent.com/u/2313414"
+      }
+    ]
+  },
+  {
+    "author": "quantumblacklabs",
+    "name": "kedro",
+    "avatar": "https://github.com/quantumblacklabs.png",
+    "url": "https://github.com/quantumblacklabs/kedro",
+    "description": "A Python library that implements software engineering best-practice for data and ML pipelines.",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 2721,
+    "forks": 295,
+    "currentPeriodStars": 70,
+    "builtBy": [
+      {
+        "username": "921kiyo",
+        "href": "https://github.com/921kiyo",
+        "avatar": "https://avatars3.githubusercontent.com/u/8097799"
+      },
+      {
+        "username": "lorenabalan",
+        "href": "https://github.com/lorenabalan",
+        "avatar": "https://avatars3.githubusercontent.com/u/6642900"
+      },
+      {
+        "username": "andrii-ivaniuk",
+        "href": "https://github.com/andrii-ivaniuk",
+        "avatar": "https://avatars3.githubusercontent.com/u/24272541"
+      },
+      {
+        "username": "DmitriiDeriabinQB",
+        "href": "https://github.com/DmitriiDeriabinQB",
+        "avatar": "https://avatars0.githubusercontent.com/u/44967953"
+      },
+      {
+        "username": "limdauto",
+        "href": "https://github.com/limdauto",
+        "avatar": "https://avatars1.githubusercontent.com/u/2032984"
+      }
+    ]
+  },
+  {
+    "author": "openai",
+    "name": "spinningup",
+    "avatar": "https://github.com/openai.png",
+    "url": "https://github.com/openai/spinningup",
+    "description": "An educational resource to help anyone learn deep reinforcement learning.",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 5013,
+    "forks": 1097,
+    "currentPeriodStars": 54,
+    "builtBy": [
+      {
+        "username": "jachiam",
+        "href": "https://github.com/jachiam",
+        "avatar": "https://avatars0.githubusercontent.com/u/11470845"
+      },
+      {
+        "username": "bchess",
+        "href": "https://github.com/bchess",
+        "avatar": "https://avatars2.githubusercontent.com/u/211132"
+      },
+      {
+        "username": "rootulp",
+        "href": "https://github.com/rootulp",
+        "avatar": "https://avatars3.githubusercontent.com/u/3699047"
+      },
+      {
+        "username": "albertwujj",
+        "href": "https://github.com/albertwujj",
+        "avatar": "https://avatars3.githubusercontent.com/u/21957230"
+      },
+      {
+        "username": "mimoralea",
+        "href": "https://github.com/mimoralea",
+        "avatar": "https://avatars3.githubusercontent.com/u/2921476"
+      }
+    ]
+  },
+  {
+    "author": "ansible",
+    "name": "ansible",
+    "avatar": "https://github.com/ansible.png",
+    "url": "https://github.com/ansible/ansible",
+    "description": "Ansible is a radically simple IT automation platform that makes your applications and systems easier to deploy. Avoid writing scripts or custom code to deploy and update your applications — automate in a language that approaches plain English, using SSH, with no agents to install on remote systems. https://docs.ansible.com/ansible/",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 44096,
+    "forks": 19378,
+    "currentPeriodStars": 133,
+    "builtBy": [
+      {
+        "username": "mpdehaan",
+        "href": "https://github.com/mpdehaan",
+        "avatar": "https://avatars0.githubusercontent.com/u/17700"
+      },
+      {
+        "username": "bcoca",
+        "href": "https://github.com/bcoca",
+        "avatar": "https://avatars0.githubusercontent.com/u/836171"
+      },
+      {
+        "username": "jimi-c",
+        "href": "https://github.com/jimi-c",
+        "avatar": "https://avatars1.githubusercontent.com/u/26403"
+      },
+      {
+        "username": "abadger",
+        "href": "https://github.com/abadger",
+        "avatar": "https://avatars2.githubusercontent.com/u/209242"
+      },
+      {
+        "username": "mattclay",
+        "href": "https://github.com/mattclay",
+        "avatar": "https://avatars2.githubusercontent.com/u/806360"
+      }
+    ]
+  },
+  {
+    "author": "geohot",
+    "name": "corona",
+    "avatar": "https://github.com/geohot.png",
+    "url": "https://github.com/geohot/corona",
+    "description": "Reverse engineering SARS-CoV-2",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 1364,
+    "forks": 181,
+    "currentPeriodStars": 28,
+    "builtBy": [
+      {
+        "username": "geohot",
+        "href": "https://github.com/geohot",
+        "avatar": "https://avatars1.githubusercontent.com/u/72895"
+      },
+      {
+        "username": "ajaykarpur",
+        "href": "https://github.com/ajaykarpur",
+        "avatar": "https://avatars0.githubusercontent.com/u/5490371"
+      },
+      {
+        "username": "emilwidlund",
+        "href": "https://github.com/emilwidlund",
+        "avatar": "https://avatars2.githubusercontent.com/u/10053249"
+      },
+      {
+        "username": "miugel",
+        "href": "https://github.com/miugel",
+        "avatar": "https://avatars2.githubusercontent.com/u/32444146"
+      },
+      {
+        "username": "hexpwn",
+        "href": "https://github.com/hexpwn",
+        "avatar": "https://avatars3.githubusercontent.com/u/58829864"
+      }
+    ]
+  },
+  {
+    "author": "kivy",
+    "name": "kivy",
+    "avatar": "https://github.com/kivy.png",
+    "url": "https://github.com/kivy/kivy",
+    "description": "Open source UI framework written in Python, running on Windows, Linux, macOS, Android and iOS",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 11506,
+    "forks": 2473,
+    "currentPeriodStars": 37,
+    "builtBy": [
+      {
+        "username": "tito",
+        "href": "https://github.com/tito",
+        "avatar": "https://avatars1.githubusercontent.com/u/37904"
+      },
+      {
+        "username": "akshayaurora",
+        "href": "https://github.com/akshayaurora",
+        "avatar": "https://avatars0.githubusercontent.com/u/788023"
+      },
+      {
+        "username": "matham",
+        "href": "https://github.com/matham",
+        "avatar": "https://avatars3.githubusercontent.com/u/1644286"
+      },
+      {
+        "username": "Zen-CODE",
+        "href": "https://github.com/Zen-CODE",
+        "avatar": "https://avatars3.githubusercontent.com/u/3539755"
+      },
+      {
+        "username": "tshirtman",
+        "href": "https://github.com/tshirtman",
+        "avatar": "https://avatars0.githubusercontent.com/u/22759"
+      }
+    ]
+  },
+  {
+    "author": "clovaai",
+    "name": "stargan-v2",
+    "avatar": "https://github.com/clovaai.png",
+    "url": "https://github.com/clovaai/stargan-v2",
+    "description": "StarGAN v2 - Official PyTorch Implementation (CVPR 2020)",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 1752,
+    "forks": 250,
+    "currentPeriodStars": 144,
+    "builtBy": [
+      {
+        "username": "yunjey",
+        "href": "https://github.com/yunjey",
+        "avatar": "https://avatars3.githubusercontent.com/u/15663219"
+      },
+      {
+        "username": "ClovaAIAdmin",
+        "href": "https://github.com/ClovaAIAdmin",
+        "avatar": "https://avatars3.githubusercontent.com/u/48815116"
+      },
+      {
+        "username": "us",
+        "href": "https://github.com/us",
+        "avatar": "https://avatars1.githubusercontent.com/u/22618852"
+      },
+      {
+        "username": "youngjung",
+        "href": "https://github.com/youngjung",
+        "avatar": "https://avatars2.githubusercontent.com/u/45905238"
+      }
+    ]
+  },
+  {
+    "author": "sebastianruder",
+    "name": "NLP-progress",
+    "avatar": "https://github.com/sebastianruder.png",
+    "url": "https://github.com/sebastianruder/NLP-progress",
+    "description": "Repository to track the progress in Natural Language Processing (NLP), including the datasets and the current state-of-the-art for the most common NLP tasks.",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 16324,
+    "forks": 2787,
+    "currentPeriodStars": 82,
+    "builtBy": [
+      {
+        "username": "sebastianruder",
+        "href": "https://github.com/sebastianruder",
+        "avatar": "https://avatars2.githubusercontent.com/u/6792642"
+      },
+      {
+        "username": "NirantK",
+        "href": "https://github.com/NirantK",
+        "avatar": "https://avatars1.githubusercontent.com/u/3250749"
+      },
+      {
+        "username": "stared",
+        "href": "https://github.com/stared",
+        "avatar": "https://avatars0.githubusercontent.com/u/1001610"
+      },
+      {
+        "username": "svjan5",
+        "href": "https://github.com/svjan5",
+        "avatar": "https://avatars1.githubusercontent.com/u/6361575"
+      },
+      {
+        "username": "ramadistra",
+        "href": "https://github.com/ramadistra",
+        "avatar": "https://avatars2.githubusercontent.com/u/31173491"
+      }
+    ]
+  },
+  {
+    "author": "psf",
+    "name": "black",
+    "avatar": "https://github.com/psf.png",
+    "url": "https://github.com/psf/black",
+    "description": "The uncompromising Python code formatter",
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "stars": 16936,
+    "forks": 1031,
+    "currentPeriodStars": 118,
+    "builtBy": [
+      {
+        "username": "ambv",
+        "href": "https://github.com/ambv",
+        "avatar": "https://avatars3.githubusercontent.com/u/55281"
+      },
+      {
+        "username": "zsol",
+        "href": "https://github.com/zsol",
+        "avatar": "https://avatars3.githubusercontent.com/u/66740"
+      },
+      {
+        "username": "JelleZijlstra",
+        "href": "https://github.com/JelleZijlstra",
+        "avatar": "https://avatars1.githubusercontent.com/u/906600"
+      },
+      {
+        "username": "hugovk",
+        "href": "https://github.com/hugovk",
+        "avatar": "https://avatars1.githubusercontent.com/u/1324225"
+      },
+      {
+        "username": "cooperlees",
+        "href": "https://github.com/cooperlees",
+        "avatar": "https://avatars3.githubusercontent.com/u/3005596"
+      }
+    ]
+  }
+]
