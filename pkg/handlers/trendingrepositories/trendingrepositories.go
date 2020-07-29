@@ -9,6 +9,8 @@ import (
 	"github.com/danvergara/dashboardserver/pkg/trendingos"
 )
 
+//lint:file-ignore U1000 Ignore all unused code, it's generated
+
 // The treding repositories on Github, filtered by date or language
 // swagger:response repositoriesResponse
 type repositoriesResponseWrapper struct {
