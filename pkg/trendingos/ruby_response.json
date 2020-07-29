@@ -1,0 +1,932 @@
+[
+  {
+    "author": "github",
+    "name": "choosealicense.com",
+    "avatar": "https://github.com/github.png",
+    "url": "https://github.com/github/choosealicense.com",
+    "description": "A site to provide non-judgmental guidance on choosing a license for your open source project",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 2000,
+    "forks": 868,
+    "currentPeriodStars": 22,
+    "builtBy": [
+      {
+        "username": "mlinksva",
+        "href": "https://github.com/mlinksva",
+        "avatar": "https://avatars1.githubusercontent.com/u/40415"
+      },
+      {
+        "username": "benbalter",
+        "href": "https://github.com/benbalter",
+        "avatar": "https://avatars0.githubusercontent.com/u/282759"
+      },
+      {
+        "username": "haacked",
+        "href": "https://github.com/haacked",
+        "avatar": "https://avatars0.githubusercontent.com/u/19977"
+      },
+      {
+        "username": "XhmikosR",
+        "href": "https://github.com/XhmikosR",
+        "avatar": "https://avatars2.githubusercontent.com/u/349621"
+      },
+      {
+        "username": "afeld",
+        "href": "https://github.com/afeld",
+        "avatar": "https://avatars3.githubusercontent.com/u/86842"
+      }
+    ]
+  },
+  {
+    "author": "faker-ruby",
+    "name": "faker",
+    "avatar": "https://github.com/faker-ruby.png",
+    "url": "https://github.com/faker-ruby/faker",
+    "description": "A library for generating fake data such as names, addresses, and phone numbers.",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 8792,
+    "forks": 2418,
+    "currentPeriodStars": 13,
+    "builtBy": [
+      {
+        "username": "stympy",
+        "href": "https://github.com/stympy",
+        "avatar": "https://avatars2.githubusercontent.com/u/1070"
+      },
+      {
+        "username": "vbrazo",
+        "href": "https://github.com/vbrazo",
+        "avatar": "https://avatars2.githubusercontent.com/u/1292556"
+      },
+      {
+        "username": "connorshea",
+        "href": "https://github.com/connorshea",
+        "avatar": "https://avatars1.githubusercontent.com/u/2977353"
+      },
+      {
+        "username": "Newman101",
+        "href": "https://github.com/Newman101",
+        "avatar": "https://avatars3.githubusercontent.com/u/4118513"
+      },
+      {
+        "username": "danielTiringer",
+        "href": "https://github.com/danielTiringer",
+        "avatar": "https://avatars2.githubusercontent.com/u/53534182"
+      }
+    ]
+  },
+  {
+    "author": "spree",
+    "name": "spree",
+    "avatar": "https://github.com/spree.png",
+    "url": "https://github.com/spree/spree",
+    "description": "Spree is an open source E-commerce platform for Rails 6 with a modern UX, optional PWA frontend, REST API, GraphQL, several official extensions and 3rd party integrations. Over 1 million downloads and counting! Check it out:",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 10531,
+    "forks": 4506,
+    "currentPeriodStars": 17,
+    "builtBy": [
+      {
+        "username": "radar",
+        "href": "https://github.com/radar",
+        "avatar": "https://avatars3.githubusercontent.com/u/2687"
+      },
+      {
+        "username": "damianlegawiec",
+        "href": "https://github.com/damianlegawiec",
+        "avatar": "https://avatars0.githubusercontent.com/u/55154"
+      },
+      {
+        "username": "schof",
+        "href": "https://github.com/schof",
+        "avatar": "https://avatars0.githubusercontent.com/u/85518"
+      },
+      {
+        "username": "JDutil",
+        "href": "https://github.com/JDutil",
+        "avatar": "https://avatars2.githubusercontent.com/u/25104"
+      },
+      {
+        "username": "runlevel5",
+        "href": "https://github.com/runlevel5",
+        "avatar": "https://avatars3.githubusercontent.com/u/135605"
+      }
+    ]
+  },
+  {
+    "author": "rapid7",
+    "name": "metasploit-framework",
+    "avatar": "https://github.com/rapid7.png",
+    "url": "https://github.com/rapid7/metasploit-framework",
+    "description": "Metasploit Framework",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 21088,
+    "forks": 10287,
+    "currentPeriodStars": 73,
+    "builtBy": [
+      {
+        "username": "msjenkins-r7",
+        "href": "https://github.com/msjenkins-r7",
+        "avatar": "https://avatars2.githubusercontent.com/u/5332090"
+      },
+      {
+        "username": "h00die",
+        "href": "https://github.com/h00die",
+        "avatar": "https://avatars3.githubusercontent.com/u/752491"
+      },
+      {
+        "username": "bcoles",
+        "href": "https://github.com/bcoles",
+        "avatar": "https://avatars3.githubusercontent.com/u/434827"
+      },
+      {
+        "username": "jrobles-r7",
+        "href": "https://github.com/jrobles-r7",
+        "avatar": "https://avatars1.githubusercontent.com/u/23102036"
+      },
+      {
+        "username": "pedrib",
+        "href": "https://github.com/pedrib",
+        "avatar": "https://avatars1.githubusercontent.com/u/5311656"
+      }
+    ]
+  },
+  {
+    "author": "elastic",
+    "name": "logstash",
+    "avatar": "https://github.com/elastic.png",
+    "url": "https://github.com/elastic/logstash",
+    "description": "Logstash - transport and process your logs, events, or other data",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 11526,
+    "forks": 3034,
+    "currentPeriodStars": 32,
+    "builtBy": [
+      {
+        "username": "jordansissel",
+        "href": "https://github.com/jordansissel",
+        "avatar": "https://avatars3.githubusercontent.com/u/131818"
+      },
+      {
+        "username": "original-brownbear",
+        "href": "https://github.com/original-brownbear",
+        "avatar": "https://avatars2.githubusercontent.com/u/6490959"
+      },
+      {
+        "username": "fetep",
+        "href": "https://github.com/fetep",
+        "avatar": "https://avatars1.githubusercontent.com/u/314078"
+      },
+      {
+        "username": "ph",
+        "href": "https://github.com/ph",
+        "avatar": "https://avatars2.githubusercontent.com/u/640"
+      },
+      {
+        "username": "jsvd",
+        "href": "https://github.com/jsvd",
+        "avatar": "https://avatars3.githubusercontent.com/u/31809"
+      }
+    ]
+  },
+  {
+    "author": "forem",
+    "name": "forem",
+    "avatar": "https://github.com/forem.png",
+    "url": "https://github.com/forem/forem",
+    "description": "For empowering community 🌱",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 14487,
+    "forks": 2327,
+    "currentPeriodStars": 205,
+    "builtBy": [
+      {
+        "username": "benhalpern",
+        "href": "https://github.com/benhalpern",
+        "avatar": "https://avatars0.githubusercontent.com/u/3102842"
+      },
+      {
+        "username": "rhymes",
+        "href": "https://github.com/rhymes",
+        "avatar": "https://avatars0.githubusercontent.com/u/146201"
+      },
+      {
+        "username": "mstruve",
+        "href": "https://github.com/mstruve",
+        "avatar": "https://avatars3.githubusercontent.com/u/1813380"
+      }
+    ]
+  },
+  {
+    "author": "sinatra",
+    "name": "sinatra",
+    "avatar": "https://github.com/sinatra.png",
+    "url": "https://github.com/sinatra/sinatra",
+    "description": "Classy web-development dressed in a DSL (official / canonical repo)",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 11026,
+    "forks": 1981,
+    "currentPeriodStars": 11,
+    "builtBy": [
+      {
+        "username": "rkh",
+        "href": "https://github.com/rkh",
+        "avatar": "https://avatars2.githubusercontent.com/u/30442"
+      },
+      {
+        "username": "zzak",
+        "href": "https://github.com/zzak",
+        "avatar": "https://avatars2.githubusercontent.com/u/277819"
+      },
+      {
+        "username": "rtomayko",
+        "href": "https://github.com/rtomayko",
+        "avatar": "https://avatars1.githubusercontent.com/u/404"
+      },
+      {
+        "username": "namusyaka",
+        "href": "https://github.com/namusyaka",
+        "avatar": "https://avatars1.githubusercontent.com/u/309329"
+      },
+      {
+        "username": "gnandretta",
+        "href": "https://github.com/gnandretta",
+        "avatar": "https://avatars0.githubusercontent.com/u/120195"
+      }
+    ]
+  },
+  {
+    "author": "heartcombo",
+    "name": "simple_form",
+    "avatar": "https://github.com/heartcombo.png",
+    "url": "https://github.com/heartcombo/simple_form",
+    "description": "Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 7626,
+    "forks": 1277,
+    "currentPeriodStars": 10,
+    "builtBy": [
+      {
+        "username": "rafaelfranca",
+        "href": "https://github.com/rafaelfranca",
+        "avatar": "https://avatars2.githubusercontent.com/u/47848"
+      },
+      {
+        "username": "carlosantoniodasilva",
+        "href": "https://github.com/carlosantoniodasilva",
+        "avatar": "https://avatars0.githubusercontent.com/u/26328"
+      },
+      {
+        "username": "josevalim",
+        "href": "https://github.com/josevalim",
+        "avatar": "https://avatars0.githubusercontent.com/u/9582"
+      },
+      {
+        "username": "nashby",
+        "href": "https://github.com/nashby",
+        "avatar": "https://avatars2.githubusercontent.com/u/200500"
+      },
+      {
+        "username": "feliperenan",
+        "href": "https://github.com/feliperenan",
+        "avatar": "https://avatars2.githubusercontent.com/u/27698968"
+      }
+    ]
+  },
+  {
+    "author": "thoughtbot",
+    "name": "administrate",
+    "avatar": "https://github.com/thoughtbot.png",
+    "url": "https://github.com/thoughtbot/administrate",
+    "description": "A Rails engine that helps you put together a super-flexible admin dashboard.",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 4826,
+    "forks": 877,
+    "currentPeriodStars": 9,
+    "builtBy": [
+      {
+        "username": "gracewashere",
+        "href": "https://github.com/gracewashere",
+        "avatar": "https://avatars1.githubusercontent.com/u/829576"
+      },
+      {
+        "username": "nickcharlton",
+        "href": "https://github.com/nickcharlton",
+        "avatar": "https://avatars2.githubusercontent.com/u/11917"
+      },
+      {
+        "username": "pablobm",
+        "href": "https://github.com/pablobm",
+        "avatar": "https://avatars3.githubusercontent.com/u/36066"
+      }
+    ]
+  },
+  {
+    "author": "dev-sec",
+    "name": "ansible-os-hardening",
+    "avatar": "https://github.com/dev-sec.png",
+    "url": "https://github.com/dev-sec/ansible-os-hardening",
+    "description": "This Ansible role provides numerous security-related configurations, providing all-round base protection.",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 1670,
+    "forks": 334,
+    "currentPeriodStars": 16,
+    "builtBy": [
+      {
+        "username": "rndmh3ro",
+        "href": "https://github.com/rndmh3ro",
+        "avatar": "https://avatars3.githubusercontent.com/u/3198961"
+      },
+      {
+        "username": "chris-rock",
+        "href": "https://github.com/chris-rock",
+        "avatar": "https://avatars0.githubusercontent.com/u/1178413"
+      },
+      {
+        "username": "fitz123",
+        "href": "https://github.com/fitz123",
+        "avatar": "https://avatars1.githubusercontent.com/u/10243861"
+      },
+      {
+        "username": "zbrojny120",
+        "href": "https://github.com/zbrojny120",
+        "avatar": "https://avatars3.githubusercontent.com/u/14238119"
+      },
+      {
+        "username": "conorsch",
+        "href": "https://github.com/conorsch",
+        "avatar": "https://avatars0.githubusercontent.com/u/657862"
+      }
+    ]
+  },
+  {
+    "author": "rails",
+    "name": "rails",
+    "avatar": "https://github.com/rails.png",
+    "url": "https://github.com/rails/rails",
+    "description": "Ruby on Rails",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 46086,
+    "forks": 18602,
+    "currentPeriodStars": 65,
+    "builtBy": [
+      {
+        "username": "rafaelfranca",
+        "href": "https://github.com/rafaelfranca",
+        "avatar": "https://avatars2.githubusercontent.com/u/47848"
+      },
+      {
+        "username": "tenderlove",
+        "href": "https://github.com/tenderlove",
+        "avatar": "https://avatars2.githubusercontent.com/u/3124"
+      },
+      {
+        "username": "dhh",
+        "href": "https://github.com/dhh",
+        "avatar": "https://avatars0.githubusercontent.com/u/2741"
+      },
+      {
+        "username": "jeremy",
+        "href": "https://github.com/jeremy",
+        "avatar": "https://avatars0.githubusercontent.com/u/199"
+      },
+      {
+        "username": "kamipo",
+        "href": "https://github.com/kamipo",
+        "avatar": "https://avatars3.githubusercontent.com/u/12642"
+      }
+    ]
+  },
+  {
+    "author": "tootsuite",
+    "name": "mastodon",
+    "avatar": "https://github.com/tootsuite.png",
+    "url": "https://github.com/tootsuite/mastodon",
+    "description": "Your self-hosted, globally interconnected microblogging community",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 21568,
+    "forks": 3684,
+    "currentPeriodStars": 62,
+    "builtBy": [
+      {
+        "username": "Gargron",
+        "href": "https://github.com/Gargron",
+        "avatar": "https://avatars3.githubusercontent.com/u/184731"
+      },
+      {
+        "username": "ThibG",
+        "href": "https://github.com/ThibG",
+        "avatar": "https://avatars3.githubusercontent.com/u/384364"
+      },
+      {
+        "username": "ykzts",
+        "href": "https://github.com/ykzts",
+        "avatar": "https://avatars3.githubusercontent.com/u/12539"
+      }
+    ]
+  },
+  {
+    "author": "elastic",
+    "name": "elasticsearch-ruby",
+    "avatar": "https://github.com/elastic.png",
+    "url": "https://github.com/elastic/elasticsearch-ruby",
+    "description": "Ruby integrations for Elasticsearch",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 1754,
+    "forks": 506,
+    "currentPeriodStars": 1,
+    "builtBy": [
+      {
+        "username": "karmi",
+        "href": "https://github.com/karmi",
+        "avatar": "https://avatars0.githubusercontent.com/u/4790"
+      },
+      {
+        "username": "estolfo",
+        "href": "https://github.com/estolfo",
+        "avatar": "https://avatars0.githubusercontent.com/u/699369"
+      },
+      {
+        "username": "picandocodigo",
+        "href": "https://github.com/picandocodigo",
+        "avatar": "https://avatars3.githubusercontent.com/u/689327"
+      },
+      {
+        "username": "karmiq",
+        "href": "https://github.com/karmiq",
+        "avatar": "https://avatars0.githubusercontent.com/u/11981503"
+      },
+      {
+        "username": "jsvd",
+        "href": "https://github.com/jsvd",
+        "avatar": "https://avatars3.githubusercontent.com/u/31809"
+      }
+    ]
+  },
+  {
+    "author": "dependabot",
+    "name": "dependabot-core",
+    "avatar": "https://github.com/dependabot.png",
+    "url": "https://github.com/dependabot/dependabot-core",
+    "description": "🤖 The core logic behind Dependabot's update PR creation, and the public issue tracker for all things Dependabot",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 1300,
+    "forks": 321,
+    "currentPeriodStars": 17,
+    "builtBy": [
+      {
+        "username": "greysteil",
+        "href": "https://github.com/greysteil",
+        "avatar": "https://avatars2.githubusercontent.com/u/1144873"
+      },
+      {
+        "username": "hmarr",
+        "href": "https://github.com/hmarr",
+        "avatar": "https://avatars1.githubusercontent.com/u/110275"
+      },
+      {
+        "username": "feelepxyz",
+        "href": "https://github.com/feelepxyz",
+        "avatar": "https://avatars0.githubusercontent.com/u/20165"
+      }
+    ]
+  },
+  {
+    "author": "gitlabhq",
+    "name": "gitlabhq",
+    "avatar": "https://github.com/gitlabhq.png",
+    "url": "https://github.com/gitlabhq/gitlabhq",
+    "description": "GitLab CE Mirror | Please open new issues in our issue tracker on GitLab.com",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 22302,
+    "forks": 5626,
+    "currentPeriodStars": 18,
+    "builtBy": [
+      {
+        "username": "dzaporozhets",
+        "href": "https://github.com/dzaporozhets",
+        "avatar": "https://avatars2.githubusercontent.com/u/305940"
+      },
+      {
+        "username": "DouweM",
+        "href": "https://github.com/DouweM",
+        "avatar": "https://avatars2.githubusercontent.com/u/159434"
+      },
+      {
+        "username": "iamphill",
+        "href": "https://github.com/iamphill",
+        "avatar": "https://avatars0.githubusercontent.com/u/741068"
+      },
+      {
+        "username": "rymai",
+        "href": "https://github.com/rymai",
+        "avatar": "https://avatars1.githubusercontent.com/u/1168"
+      },
+      {
+        "username": "rspeicher",
+        "href": "https://github.com/rspeicher",
+        "avatar": "https://avatars2.githubusercontent.com/u/16124"
+      }
+    ]
+  },
+  {
+    "author": "logstash-plugins",
+    "name": "logstash-patterns-core",
+    "avatar": "https://github.com/logstash-plugins.png",
+    "url": "https://github.com/logstash-plugins/logstash-patterns-core",
+    "description": "",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 1698,
+    "forks": 835,
+    "currentPeriodStars": 7,
+    "builtBy": [
+      {
+        "username": "ph",
+        "href": "https://github.com/ph",
+        "avatar": "https://avatars2.githubusercontent.com/u/640"
+      },
+      {
+        "username": "jsvd",
+        "href": "https://github.com/jsvd",
+        "avatar": "https://avatars3.githubusercontent.com/u/31809"
+      },
+      {
+        "username": "bdashrad",
+        "href": "https://github.com/bdashrad",
+        "avatar": "https://avatars2.githubusercontent.com/u/2762198"
+      },
+      {
+        "username": "cniweb",
+        "href": "https://github.com/cniweb",
+        "avatar": "https://avatars1.githubusercontent.com/u/2334906"
+      },
+      {
+        "username": "colinsurprenant",
+        "href": "https://github.com/colinsurprenant",
+        "avatar": "https://avatars3.githubusercontent.com/u/2010"
+      }
+    ]
+  },
+  {
+    "author": "ankane",
+    "name": "pghero",
+    "avatar": "https://github.com/ankane.png",
+    "url": "https://github.com/ankane/pghero",
+    "description": "A performance dashboard for Postgres",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 5444,
+    "forks": 298,
+    "currentPeriodStars": 21,
+    "builtBy": [
+      {
+        "username": "ankane",
+        "href": "https://github.com/ankane",
+        "avatar": "https://avatars1.githubusercontent.com/u/220358"
+      },
+      {
+        "username": "thotmx",
+        "href": "https://github.com/thotmx",
+        "avatar": "https://avatars3.githubusercontent.com/u/719551"
+      },
+      {
+        "username": "seanlinsley",
+        "href": "https://github.com/seanlinsley",
+        "avatar": "https://avatars2.githubusercontent.com/u/688886"
+      },
+      {
+        "username": "annaswims",
+        "href": "https://github.com/annaswims",
+        "avatar": "https://avatars1.githubusercontent.com/u/19188"
+      },
+      {
+        "username": "dhcrzf",
+        "href": "https://github.com/dhcrzf",
+        "avatar": "https://avatars2.githubusercontent.com/u/8399811"
+      }
+    ]
+  },
+  {
+    "author": "fastlane",
+    "name": "fastlane",
+    "avatar": "https://github.com/fastlane.png",
+    "url": "https://github.com/fastlane/fastlane",
+    "description": "🚀 The easiest way to automate building and releasing your iOS and Android apps",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 29344,
+    "forks": 4602,
+    "currentPeriodStars": 47,
+    "builtBy": [
+      {
+        "username": "KrauseFx",
+        "href": "https://github.com/KrauseFx",
+        "avatar": "https://avatars1.githubusercontent.com/u/869950"
+      },
+      {
+        "username": "mfurtak",
+        "href": "https://github.com/mfurtak",
+        "avatar": "https://avatars3.githubusercontent.com/u/343134"
+      },
+      {
+        "username": "joshdholtz",
+        "href": "https://github.com/joshdholtz",
+        "avatar": "https://avatars1.githubusercontent.com/u/401294"
+      },
+      {
+        "username": "ohayon",
+        "href": "https://github.com/ohayon",
+        "avatar": "https://avatars2.githubusercontent.com/u/2587018"
+      },
+      {
+        "username": "taquitos",
+        "href": "https://github.com/taquitos",
+        "avatar": "https://avatars3.githubusercontent.com/u/1304821"
+      }
+    ]
+  },
+  {
+    "author": "github",
+    "name": "explore",
+    "avatar": "https://github.com/github.png",
+    "url": "https://github.com/github/explore",
+    "description": "Community-curated topic and collection pages on GitHub",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 1767,
+    "forks": 7111,
+    "currentPeriodStars": 15,
+    "builtBy": [
+      {
+        "username": "kenyonj",
+        "href": "https://github.com/kenyonj",
+        "avatar": "https://avatars0.githubusercontent.com/u/4008677"
+      },
+      {
+        "username": "MikeMcQuaid",
+        "href": "https://github.com/MikeMcQuaid",
+        "avatar": "https://avatars3.githubusercontent.com/u/125011"
+      },
+      {
+        "username": "cheshire137",
+        "href": "https://github.com/cheshire137",
+        "avatar": "https://avatars1.githubusercontent.com/u/82317"
+      },
+      {
+        "username": "talsafran",
+        "href": "https://github.com/talsafran",
+        "avatar": "https://avatars2.githubusercontent.com/u/257028"
+      },
+      {
+        "username": "leereilly",
+        "href": "https://github.com/leereilly",
+        "avatar": "https://avatars3.githubusercontent.com/u/121322"
+      }
+    ]
+  },
+  {
+    "author": "luggit",
+    "name": "react-native-config",
+    "avatar": "https://github.com/luggit.png",
+    "url": "https://github.com/luggit/react-native-config",
+    "description": "Bring some 12 factor love to your mobile apps!",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 3178,
+    "forks": 523,
+    "currentPeriodStars": 18,
+    "builtBy": [
+      {
+        "username": "pedro",
+        "href": "https://github.com/pedro",
+        "avatar": "https://avatars2.githubusercontent.com/u/2248"
+      },
+      {
+        "username": "luancurti",
+        "href": "https://github.com/luancurti",
+        "avatar": "https://avatars0.githubusercontent.com/u/7242605"
+      },
+      {
+        "username": "erickreutz",
+        "href": "https://github.com/erickreutz",
+        "avatar": "https://avatars1.githubusercontent.com/u/59875"
+      },
+      {
+        "username": "ncnlinh",
+        "href": "https://github.com/ncnlinh",
+        "avatar": "https://avatars3.githubusercontent.com/u/7568367"
+      }
+    ]
+  },
+  {
+    "author": "Shopify",
+    "name": "liquid",
+    "avatar": "https://github.com/Shopify.png",
+    "url": "https://github.com/Shopify/liquid",
+    "description": "Liquid markup language. Safe, customer facing template language for flexible web apps.",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 7997,
+    "forks": 1041,
+    "currentPeriodStars": 22,
+    "builtBy": [
+      {
+        "username": "pushrax",
+        "href": "https://github.com/pushrax",
+        "avatar": "https://avatars1.githubusercontent.com/u/984857"
+      },
+      {
+        "username": "dylanahsmith",
+        "href": "https://github.com/dylanahsmith",
+        "avatar": "https://avatars1.githubusercontent.com/u/954402"
+      },
+      {
+        "username": "fw42",
+        "href": "https://github.com/fw42",
+        "avatar": "https://avatars2.githubusercontent.com/u/2072686"
+      },
+      {
+        "username": "trishume",
+        "href": "https://github.com/trishume",
+        "avatar": "https://avatars2.githubusercontent.com/u/887610"
+      },
+      {
+        "username": "tobi",
+        "href": "https://github.com/tobi",
+        "avatar": "https://avatars3.githubusercontent.com/u/347"
+      }
+    ]
+  },
+  {
+    "author": "github",
+    "name": "linguist",
+    "avatar": "https://github.com/github.png",
+    "url": "https://github.com/github/linguist",
+    "description": "Language Savant. If your repository's language is being reported incorrectly, send us a pull request!",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 7900,
+    "forks": 2874,
+    "currentPeriodStars": 27,
+    "builtBy": [
+      {
+        "username": "arfon",
+        "href": "https://github.com/arfon",
+        "avatar": "https://avatars3.githubusercontent.com/u/4483"
+      },
+      {
+        "username": "josh",
+        "href": "https://github.com/josh",
+        "avatar": "https://avatars3.githubusercontent.com/u/137"
+      },
+      {
+        "username": "tnm",
+        "href": "https://github.com/tnm",
+        "avatar": "https://avatars2.githubusercontent.com/u/126905"
+      },
+      {
+        "username": "pchaigno",
+        "href": "https://github.com/pchaigno",
+        "avatar": "https://avatars0.githubusercontent.com/u/1764210"
+      },
+      {
+        "username": "aroben",
+        "href": "https://github.com/aroben",
+        "avatar": "https://avatars1.githubusercontent.com/u/917945"
+      }
+    ]
+  },
+  {
+    "author": "zdennis",
+    "name": "activerecord-import",
+    "avatar": "https://github.com/zdennis.png",
+    "url": "https://github.com/zdennis/activerecord-import",
+    "description": "A library for bulk insertion of data into your database using ActiveRecord.",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 3304,
+    "forks": 549,
+    "currentPeriodStars": 9,
+    "builtBy": [
+      {
+        "username": "jkowens",
+        "href": "https://github.com/jkowens",
+        "avatar": "https://avatars1.githubusercontent.com/u/585943"
+      },
+      {
+        "username": "zdennis",
+        "href": "https://github.com/zdennis",
+        "avatar": "https://avatars3.githubusercontent.com/u/967"
+      },
+      {
+        "username": "sferik",
+        "href": "https://github.com/sferik",
+        "avatar": "https://avatars3.githubusercontent.com/u/10308"
+      },
+      {
+        "username": "spectator",
+        "href": "https://github.com/spectator",
+        "avatar": "https://avatars2.githubusercontent.com/u/7393"
+      },
+      {
+        "username": "Empact",
+        "href": "https://github.com/Empact",
+        "avatar": "https://avatars3.githubusercontent.com/u/5470"
+      }
+    ]
+  },
+  {
+    "author": "chef",
+    "name": "chef",
+    "avatar": "https://github.com/chef.png",
+    "url": "https://github.com/chef/chef",
+    "description": "Chef Infra, a powerful automation platform that transforms infrastructure into code automating how infrastructure is configured, deployed and managed across any environment, at any scale",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 6297,
+    "forks": 2436,
+    "currentPeriodStars": 11,
+    "builtBy": [
+      {
+        "username": "tas50",
+        "href": "https://github.com/tas50",
+        "avatar": "https://avatars3.githubusercontent.com/u/1015200"
+      },
+      {
+        "username": "lamont-granquist",
+        "href": "https://github.com/lamont-granquist",
+        "avatar": "https://avatars2.githubusercontent.com/u/454857"
+      },
+      {
+        "username": "danielsdeleo",
+        "href": "https://github.com/danielsdeleo",
+        "avatar": "https://avatars3.githubusercontent.com/u/37162"
+      },
+      {
+        "username": "adamhjk",
+        "href": "https://github.com/adamhjk",
+        "avatar": "https://avatars0.githubusercontent.com/u/4304"
+      },
+      {
+        "username": "btm",
+        "href": "https://github.com/btm",
+        "avatar": "https://avatars1.githubusercontent.com/u/4381"
+      }
+    ]
+  },
+  {
+    "author": "instructure",
+    "name": "canvas-lms",
+    "avatar": "https://github.com/instructure.png",
+    "url": "https://github.com/instructure/canvas-lms",
+    "description": "The open LMS by Instructure, Inc.",
+    "language": "Ruby",
+    "languageColor": "#701516",
+    "stars": 3448,
+    "forks": 1469,
+    "currentPeriodStars": 16,
+    "builtBy": [
+      {
+        "username": "ccutrer",
+        "href": "https://github.com/ccutrer",
+        "avatar": "https://avatars3.githubusercontent.com/u/191320"
+      },
+      {
+        "username": "maneframe",
+        "href": "https://github.com/maneframe",
+        "avatar": "https://avatars1.githubusercontent.com/u/2111401"
+      },
+      {
+        "username": "ryankshaw",
+        "href": "https://github.com/ryankshaw",
+        "avatar": "https://avatars3.githubusercontent.com/u/10541"
+      },
+      {
+        "username": "codekitchen",
+        "href": "https://github.com/codekitchen",
+        "avatar": "https://avatars2.githubusercontent.com/u/52172"
+      },
+      {
+        "username": "simonista",
+        "href": "https://github.com/simonista",
+        "avatar": "https://avatars1.githubusercontent.com/u/60822"
+      }
+    ]
+  }
+]
