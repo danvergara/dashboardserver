@@ -7,6 +7,7 @@ import (
 	"github.com/danvergara/dashboardserver/pkg/handlers/economics"
 	"github.com/danvergara/dashboardserver/pkg/handlers/healthcheck"
 	"github.com/danvergara/dashboardserver/pkg/handlers/topnews"
+	"github.com/danvergara/dashboardserver/pkg/handlers/trendingrepositories"
 	"github.com/danvergara/dashboardserver/pkg/handlers/weather"
 	auth "github.com/danvergara/dashboardserver/pkg/middleware"
 
@@ -56,6 +57,7 @@ func New(app *application.Application) *chi.Mux {
 		r.Get("/weather-forecast", weather.Forecast(app))
 		r.Get("/historical-currency-rates", economics.HistoricalCurrencyRates(app))
 		r.Get("/currency-exchange", economics.CurrencyExchange(app))
+		r.Get("/repositories", trendingrepositories.Get(app))
 	})
 	return mux
 }
