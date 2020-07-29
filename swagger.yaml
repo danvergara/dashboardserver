@@ -56,6 +56,20 @@ definitions:
         x-go-name: All
     type: object
     x-go-package: github.com/danvergara/dashboardserver/pkg/openweather
+  Contributor:
+    description: Contributor is the struct used to store a contributor of a given project
+    properties:
+      avatar:
+        type: string
+        x-go-name: Avatar
+      href:
+        type: string
+        x-go-name: Href
+      username:
+        type: string
+        x-go-name: Username
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/trendingos
   CurrencyExchangeResponse:
     description: 'CurrencyExchangeResponse {"currency-exchange": currencyexchange.ExchangeRateData}'
     properties:
@@ -189,6 +203,16 @@ definitions:
         x-go-name: Main
     type: object
     x-go-package: github.com/danvergara/dashboardserver/pkg/openweather
+  RepositoriesResponse:
+    description: 'RepositoriesResponse is the actual response {"respositories": []}'
+    properties:
+      repositories:
+        items:
+          $ref: '#/definitions/TrendingRepository'
+        type: array
+        x-go-name: Repositories
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/trendingrepositories
   Source:
     properties:
       category:
@@ -222,6 +246,49 @@ definitions:
     title: Source stores the data of the source that published the article.
     type: object
     x-go-package: github.com/danvergara/newsapigo
+  TrendingRepository:
+    description: TrendingRepository is the response github-trending-api for /repositories
+    properties:
+      author:
+        type: string
+        x-go-name: Author
+      avatar:
+        type: string
+        x-go-name: Avatar
+      builtBy:
+        items:
+          $ref: '#/definitions/Contributor'
+        type: array
+        x-go-name: BuiltBy
+      currentPeriodStars:
+        format: int64
+        type: integer
+        x-go-name: CurrentPeriodStars
+      description:
+        type: string
+        x-go-name: Description
+      forks:
+        format: int64
+        type: integer
+        x-go-name: Forks
+      language:
+        type: string
+        x-go-name: Language
+      languageColor:
+        type: string
+        x-go-name: LanguageColor
+      name:
+        type: string
+        x-go-name: Name
+      stars:
+        format: int64
+        type: integer
+        x-go-name: Stars
+      url:
+        type: string
+        x-go-name: URL
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/trendingos
   Weather:
     description: Weather object
     properties:
@@ -310,6 +377,31 @@ paths:
       responses:
         "200":
           $ref: '#/responses/historicalCurrencyResponse'
+  /v1/repositories:
+    get:
+      description: Returns the list of the treding repositories on Github
+      operationId: repositories
+      parameters:
+      - description: The programming language
+        in: query
+        name: language
+        type: string
+        x-go-name: Language
+      - description: 'since: optional, default to daily, possible values: daily, weekly and monthly'
+        in: query
+        name: since
+        type: string
+        x-go-name: Since
+      - description: 'spoken_language_code: optional, list trending repositories of certain spoken languages'
+        in: query
+        name: spoken_language_code
+        type: string
+        x-go-name: SpokenLanguageCode
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/repositoriesResponse'
   /v1/top-news:
     get:
       description: Returns a list of the top business news in MX
@@ -350,6 +442,10 @@ responses:
     description: The Historical Currency Response between MXN-USD
     schema:
       $ref: '#/definitions/HistoricalCurrencyResponse'
+  repositoriesResponse:
+    description: The treding repositories on Github, filtered by date or language
+    schema:
+      $ref: '#/definitions/RepositoriesResponse'
   weatherForecast:
     description: The Forecast Weather data in json format
     schema:
