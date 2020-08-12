@@ -13,7 +13,8 @@ const (
 
 var baseURL = url.URL{
 	Scheme: "https",
-	Host:   "metals-api.com/api/",
+	Host:   "metals-api.com",
+	Path:   "/api/",
 }
 
 // Client is the main object used to Connect this app with metals-api API
