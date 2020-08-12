@@ -10,7 +10,7 @@ type Response struct {
 	Base       string                        `json:"base"`
 	Rates      map[string]map[string]float64 `json:"rates"`
 	Unit       string                        `json:"unit"`
-	Error      Error                         `json:"error,omitempty"`
+	Error      *Error                        `json:"error,omitempty"`
 }
 
 // Error object has all the relevant information when an errors occurs
