@@ -29,7 +29,7 @@ func (args TimeSeriesArgs) QueryParams() url.Values {
 	}
 
 	if !args.EndDate.IsZero() {
-		q.Add("end_date", args.StartDate.Format(dateLayout))
+		q.Add("end_date", args.EndDate.Format(dateLayout))
 	}
 
 	if args.Base != "" {
