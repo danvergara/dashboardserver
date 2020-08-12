@@ -9,6 +9,7 @@ services:
       OPEN_EXCHANGE_APP_ID: $OPEN_EXCHANGE_APP_ID
       NEWSAPI_KEY: $NEWSAPI_KEY
       OPENWEATHER_KEY: $OPENWEATHER_KEY
+      METALS_API_KEY: $METALS_API_KEY
       VIRTUAL_HOST: dashboardserver.default
       VIRTUAL_PORT: 8000
     env_file:
