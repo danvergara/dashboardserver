@@ -84,6 +84,21 @@ definitions:
         $ref: '#/definitions/Weather'
     type: object
     x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/weather
+  Error:
+    description: Error object has all the relevant information when an errors occurs
+    properties:
+      code:
+        format: int64
+        type: integer
+        x-go-name: Code
+      info:
+        type: string
+        x-go-name: Info
+      type:
+        type: string
+        x-go-name: Type
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/metalsapi
   ExchangeRateData:
     description: ExchangeRateData stores the exchage rate between two currencies
     properties:
@@ -213,6 +228,42 @@ definitions:
         x-go-name: Repositories
     type: object
     x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/trendingrepositories
+  Response:
+    description: Response is the struct that the maps the values from the metals-api
+    properties:
+      base:
+        type: string
+        x-go-name: Base
+      date:
+        type: string
+        x-go-name: Date
+      end_date:
+        type: string
+        x-go-name: EndDate
+      error:
+        $ref: '#/definitions/Error'
+      rates:
+        additionalProperties:
+          additionalProperties:
+            format: double
+            type: number
+          type: object
+        type: object
+        x-go-name: Rates
+      start_date:
+        type: string
+        x-go-name: StartDate
+      success:
+        type: boolean
+        x-go-name: Success
+      timeseries:
+        type: boolean
+        x-go-name: Timeseries
+      unit:
+        type: string
+        x-go-name: Unit
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/metalsapi
   Source:
     properties:
       category:
@@ -334,6 +385,12 @@ definitions:
         x-go-name: Alive
     type: object
     x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/healthcheck
+  timeSeriesResponse:
+    properties:
+      time_series:
+        $ref: '#/definitions/Response'
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/timeseries
 host: watchtowerbackend.com
 info:
   description: |-
@@ -402,6 +459,21 @@ paths:
       responses:
         "200":
           $ref: '#/responses/repositoriesResponse'
+  /v1/timeseries:
+    get:
+      description: Returns the exchange rates in time series in dollars given a base currency
+      operationId: timeseries
+      parameters:
+      - description: The currency code or metal code of your preferred base currency
+        in: query
+        name: base
+        type: string
+        x-go-name: Base
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/timeSeriesResponse'
   /v1/top-news:
     get:
       description: Returns a list of the top business news in MX
@@ -446,6 +518,10 @@ responses:
     description: The treding repositories on Github, filtered by date or language
     schema:
       $ref: '#/definitions/RepositoriesResponse'
+  timeSeriesResponse:
+    description: The exchange rates time series from metals api
+    schema:
+      $ref: '#/definitions/timeSeriesResponse'
   weatherForecast:
     description: The Forecast Weather data in json format
     schema:
