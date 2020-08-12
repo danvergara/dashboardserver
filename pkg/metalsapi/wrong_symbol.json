@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "timeseries": true,
+  "start_date": "2020-08-06",
+  "end_date": "2020-08-11",
+  "base": "XAU",
+  "rates": [],
+  "unit": "per ounce"
+}
