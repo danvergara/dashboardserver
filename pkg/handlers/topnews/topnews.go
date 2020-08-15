@@ -19,6 +19,13 @@ type articlesReponseWrapper struct {
 	Body ArticlesReponse
 }
 
+// swagger:parameters topnews
+type topNewsParameters struct {
+	// The selected category fot the top headlines
+	// in: query
+	Category string `json:"category"`
+}
+
 // ArticlesReponse substitutes the old response {"news": response.Articles}
 type ArticlesReponse struct {
 	News []newsapigo.Article `json:"news"`
@@ -38,6 +45,8 @@ type ArticlesReponse struct {
 // As we can see, newsapigo is the library that does the hard work
 func TopNews(app *application.Application) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		category := r.URL.Query().Get("category")
+
 		// Using the brand new NewClient constructor function to create a newsapigo Client
 		c := newsapigo.NewClient(os.Getenv("NEWSAPI_KEY"))
 
@@ -45,7 +54,7 @@ func TopNews(app *application.Application) http.HandlerFunc {
 		// In this case: Country and Category
 		queryParams := newsapigo.TopHeadlinesArgs{
 			Country:  "mx",
-			Category: "business",
+			Category: category,
 		}
 
 		// Perfom the http request using the TopHeadlines method
