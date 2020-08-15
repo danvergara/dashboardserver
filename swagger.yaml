@@ -406,6 +406,12 @@ paths:
     get:
       description: Returns a list of the top business news in MX
       operationId: topnews
+      parameters:
+      - description: The selected category fot the top headlines
+        in: query
+        name: category
+        type: string
+        x-go-name: Category
       produces:
       - application/json
       responses:
