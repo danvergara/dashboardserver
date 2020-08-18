@@ -160,6 +160,44 @@ definitions:
         x-go-name: StartAt
     type: object
     x-go-package: github.com/danvergara/dashboardserver/pkg/currencyexchange
+  Job:
+    description: Job is the struct that stores the job item information
+    properties:
+      company:
+        type: string
+        x-go-name: Company
+      company_logo:
+        type: string
+        x-go-name: CompanyLogo
+      company_url:
+        type: string
+        x-go-name: CompanyURL
+      created_at:
+        type: string
+        x-go-name: CreatedAt
+      description:
+        type: string
+        x-go-name: Description
+      how_to_apply:
+        type: string
+        x-go-name: HowToApply
+      id:
+        type: string
+        x-go-name: ID
+      location:
+        type: string
+        x-go-name: Location
+      title:
+        type: string
+        x-go-name: Title
+      type:
+        type: string
+        x-go-name: Type
+      url:
+        type: string
+        x-go-name: URL
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/githubjobs
   Main:
     description: Main info of the current weather
     properties:
@@ -334,6 +372,15 @@ definitions:
         x-go-name: Alive
     type: object
     x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/healthcheck
+  jobsResponse:
+    properties:
+      jobs:
+        items:
+          $ref: '#/definitions/Job'
+        type: array
+        x-go-name: Jobs
+    type: object
+    x-go-package: github.com/danvergara/dashboardserver/pkg/handlers/jobs
 host: watchtowerbackend.com
 info:
   description: |-
@@ -377,6 +424,21 @@ paths:
       responses:
         "200":
           $ref: '#/responses/historicalCurrencyResponse'
+  /v1/jobs:
+    get:
+      description: Returns a jobs list for software engineers from Github Jobs API
+      operationId: jobs
+      parameters:
+      - description: The desired job description, mostly used to specify the programming language
+        in: query
+        name: description
+        type: string
+        x-go-name: Description
+      produces:
+      - application/json
+      responses:
+        "200":
+          $ref: '#/responses/jobsResponse'
   /v1/repositories:
     get:
       description: Returns the list of the treding repositories on Github
@@ -448,6 +510,10 @@ responses:
     description: The Historical Currency Response between MXN-USD
     schema:
       $ref: '#/definitions/HistoricalCurrencyResponse'
+  jobsResponse:
+    description: A list of jobs for software engineers  from the Github Jobs API
+    schema:
+      $ref: '#/definitions/jobsResponse'
   repositoriesResponse:
     description: The treding repositories on Github, filtered by date or language
     schema:
