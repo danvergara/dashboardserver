@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-const positionsPath string = "positions.json?"
+const positionsPath string = "positions.json"
 
 var baseURL = url.URL{
 	Scheme: "https",
